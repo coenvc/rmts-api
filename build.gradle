@@ -9,8 +9,6 @@ war {
     version = '0.0.1'
 }
 
-mainClassName = "app.Application"
-
 sourceCompatibility = 1.5
 
 repositories {
