@@ -2,7 +2,6 @@ package model;
 
 public class UserBuilder {
 
-    private User user;
     private String _username;
     private String _password;
     private String _name;
@@ -38,7 +37,6 @@ public class UserBuilder {
     }
 
     public User build() {
-        user = new User(_username, _password, _name, _active);
-        return user;
+        return new User(_username, _password, _name, _active);
     }
 }

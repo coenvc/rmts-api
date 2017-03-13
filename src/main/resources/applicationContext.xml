@@ -3,14 +3,34 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean
-            name="testRepository"
-            class="repository.HibernateTestRepository"
-    />
+    <!--Test repository wiring-->
+    <bean name="testRepository"
+            class="repository.HibernateTestRepository">
+    </bean>
 
     <bean name="testService"
           class="service.TestServiceImpl">
         <property name="repository" ref="testRepository"/>
+    </bean>
+
+    <!--User wiring-->
+    <bean name="userRepository"
+            class="repository.user.HibernateUserRepository">
+    </bean>
+
+    <bean name="userService"
+          class="service.user.DefaultUserService">
+        <property name="repository" ref="userRepository"/>
+    </bean>
+
+    <!--Prospect wiring-->
+    <bean name="prospectRepository"
+          class="repository.prospect.HibernateProspectRepository">
+    </bean>
+
+    <bean name="prospectService"
+          class="service.prospect.DefaultProspectService">
+        <property name="repository" ref="prospectRepository"/>
     </bean>
 
 </beans>

@@ -22,6 +22,7 @@ public class User {
     private boolean _active;
 
     public User() {
+
     }
 
     User(String username, String password, String name, boolean active) {

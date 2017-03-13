@@ -2,6 +2,9 @@ package model;
 
 public class ProspectBuilder {
 
+    /* TODO
+     * Composition toepassen met de volgende classes: Job, Address, SocialLinks
+    */
     private String _name;
     private String _jobTitle;
     private String _phoneNumber;
