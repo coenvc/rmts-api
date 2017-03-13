@@ -14,14 +14,25 @@
     </bean>
 
     <!--User wiring-->
-    <bean name="userRepository"
-            class="repository.user.HibernateUserRepository">
-    </bean>
+        <!--Production config-->
+        <bean name="userRepository"
+                class="repository.user.HibernateUserRepository">
+        </bean>
 
-    <bean name="userService"
-          class="service.user.DefaultUserService">
-        <property name="repository" ref="userRepository"/>
-    </bean>
+        <bean name="userService"
+              class="service.user.DefaultUserService">
+            <property name="repository" ref="userRepository"/>
+        </bean>
+
+        <!--TestConfig-->
+        <bean name="testUserRepository"
+              class="repository.user.TestUserRepository">
+        </bean>
+
+        <bean name="testUserService"
+              class="service.user.DefaultUserService">
+            <property name="repository" ref="testUserRepository"/>
+        </bean>
 
     <!--Prospect wiring-->
     <bean name="prospectRepository"

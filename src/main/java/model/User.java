@@ -64,5 +64,13 @@ public class User {
     public void set_active(boolean _active) {
         this._active = _active;
     }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
+    }
     //endregion
 }
