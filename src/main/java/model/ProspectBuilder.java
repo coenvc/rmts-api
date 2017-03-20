@@ -4,6 +4,7 @@ public class ProspectBuilder {
 
     private int id;
     private String name;
+    private String emailAddress;
     private Address address;
     private Profession profession;
     private String phoneNumber;
@@ -15,6 +16,14 @@ public class ProspectBuilder {
             throw new NullPointerException();
         }
         this.name = name;
+        return this;
+    }
+
+    public ProspectBuilder emailAddress(String emailAddress){
+        if(emailAddress == null){
+            throw new NullPointerException();
+        }
+        this.emailAddress = emailAddress;
         return this;
     }
 
@@ -59,6 +68,6 @@ public class ProspectBuilder {
     }
 
     public Prospect build() {
-        return new Prospect(name, address, profession, phoneNumber, socialLinks, status);
+        return new Prospect(name, emailAddress, address, profession, phoneNumber, socialLinks, status);
     }
 }

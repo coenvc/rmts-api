@@ -12,6 +12,9 @@ public class Prospect {
     @Column
     private String name;
 
+    @Column
+    private String emailAddress;
+
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
 
@@ -31,8 +34,9 @@ public class Prospect {
 
     }
 
-    public Prospect(String name, Address address, Profession profession, String phoneNumber, SocialLinks socialLinks, Status status) {
+    public Prospect(String name, String emailAddress, Address address, Profession profession, String phoneNumber, SocialLinks socialLinks, Status status) {
         this.name = name;
+        this.emailAddress = emailAddress;
         this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
@@ -40,8 +44,11 @@ public class Prospect {
         this.status = status;
     }
 
-    //region Getters & Setters
+//region Getters & Setters
 
+    public String getEmailAddress() { return emailAddress; }
+
+    public void setEmailAddress(String emailAddress) { this.emailAddress = emailAddress; }
 
     public Address getAddress() {
         return address;
@@ -98,5 +105,6 @@ public class Prospect {
     public void setstatus(Status status) {
         this.status = status;
     }
+
     //endregion
 }
