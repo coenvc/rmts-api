@@ -3,11 +3,32 @@ package repository.user;
 import data.Database;
 import model.User;
 import org.hibernate.Session;
+import org.hibernate.procedure.ProcedureCall;
+import org.hibernate.procedure.ProcedureOutputs;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
+import org.hibernate.result.Output;
+import org.hibernate.result.ResultSetOutput;
 
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
+import javax.persistence.StoredProcedureQuery;
 import java.util.List;
 
 public class HibernateUserRepository implements UserRepository {
+
+    public User login(String username, String password) {
+
+        Session session = Database.SESSION.openSession();
+
+        User user = (User) session.createQuery("FROM User WHERE username = :username AND password = :password")
+                .setParameter("username",username)
+                .setParameter("password", password)
+                .uniqueResult();
+
+        return user;
+    }
 
     public void insert(User user) {
         Database.save(user);

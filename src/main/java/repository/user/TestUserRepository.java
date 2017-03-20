@@ -9,6 +9,10 @@ import java.util.List;
 
 public class TestUserRepository implements UserRepository{
 
+    public User login(String username, String password) {
+        return null;
+    }
+
     public void insert(User user) {
 
     }
