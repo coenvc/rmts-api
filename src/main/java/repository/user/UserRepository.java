@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserRepository {
 
+    boolean login(User user);
+
     void insert(User user);
 
     List getAll();

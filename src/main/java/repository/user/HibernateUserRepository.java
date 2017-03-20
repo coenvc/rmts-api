@@ -5,9 +5,16 @@ import model.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.util.List;
 
 public class HibernateUserRepository implements UserRepository {
+
+    public boolean login(User user) {
+        Session session = Database.SESSION.openSession();
+        return false;
+    }
 
     public void insert(User user) {
         Database.save(user);
