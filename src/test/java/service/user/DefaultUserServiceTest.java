@@ -4,7 +4,6 @@ import model.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import repository.user.UserRepository;
 
 import java.util.List;
 
@@ -25,6 +24,6 @@ public class DefaultUserServiceTest {
     @Test
     public void find() throws Exception {
         User user = service.find(1);
-        assertEquals(user.get_id(), 1);
+        assertEquals(user.getId(), 1);
     }
 }

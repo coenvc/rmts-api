@@ -44,7 +44,7 @@ public class TestUserRepository implements UserRepository{
                 .active(true)
                 .build();
 
-        u1.set_id(id);
+        u1.setId(id);
 
         return u1;
     }

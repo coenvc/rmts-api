@@ -40,7 +40,6 @@ public class AddressBuilder {
 
     //region Helper methods
     private void checkProperties() {
-
         if (street == null) throw new IllegalArgumentException("No street specified.");
         if (houseNumber == null) throw new IllegalArgumentException("No houseNumber specified.");
         if (city == null) throw new IllegalArgumentException("No city specified.");
