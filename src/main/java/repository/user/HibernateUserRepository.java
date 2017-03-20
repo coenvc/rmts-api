@@ -21,7 +21,6 @@ public class HibernateUserRepository implements UserRepository {
                 .uniqueResult();
 
         return user;
-
     }
 
     public void insert(User user) {
