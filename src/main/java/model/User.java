@@ -7,70 +7,70 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int _id;
+    private int id;
 
     @Column
-    private String _username;
+    private String username;
 
     @Column
-    private String _password;
+    private String password;
 
     @Column
-    private String _name;
+    private String name;
 
     @Column
-    private boolean _active;
+    private boolean active;
 
     public User() {
 
     }
 
     User(String username, String password, String name, boolean active) {
-        _username = username;
-        _password = password;
-        _name = name;
-        _active = active;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.active = active;
     }
 
     //region Getters & Setters
-    public String get_username() {
-        return _username;
+    public String getUsername() {
+        return username;
     }
 
-    public void set_username(String _username) {
-        this._username = _username;
+    public void setUsername(String _username) {
+        this.username = _username;
     }
 
-    public String get_password() {
-        return _password;
+    public String getPassword() {
+        return password;
     }
 
-    public void set_password(String _password) {
-        this._password = _password;
+    public void setPassword(String _password) {
+        this.password = _password;
     }
 
-    public String get_name() {
-        return _name;
+    public String getName() {
+        return name;
     }
 
-    public void set_name(String _name) {
-        this._name = _name;
+    public void setName(String _name) {
+        this.name = _name;
     }
 
-    public boolean is_active() {
-        return _active;
+    public boolean isActive() {
+        return active;
     }
 
-    public void set_active(boolean _active) {
-        this._active = _active;
+    public void setActive(boolean _active) {
+        this.active = _active;
     }
 
-    public int get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int _id) {
+        this.id = _id;
     }
     //endregion
 }
