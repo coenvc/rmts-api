@@ -12,8 +12,11 @@ public class Prospect {
     @Column
     private String name;
 
+    @OneToOne
+    private Address address;
+
     @Column
-    private String profession;
+    private Profession profession;
 
     @Column
     private String phoneNumber;
@@ -26,10 +29,12 @@ public class Prospect {
     private Status status;
 
     public Prospect() {
+
     }
 
-    public Prospect(String name, String profession, String phoneNumber, SocialLinks socialLinks, Status status) {
+    public Prospect(String name, Address address, Profession profession, String phoneNumber, SocialLinks socialLinks, Status status) {
         this.name = name;
+        this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
         this.socialLinks = socialLinks;
@@ -37,6 +42,16 @@ public class Prospect {
     }
 
     //region Getters & Setters
+
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public int getid() {
         return id;
     }
@@ -53,11 +68,11 @@ public class Prospect {
         this.name = name;
     }
 
-    public String getprofession() {
+    public Profession getprofession() {
         return profession;
     }
 
-    public void setprofession(String profession) {
+    public void setprofession(Profession profession) {
         this.profession = profession;
     }
 

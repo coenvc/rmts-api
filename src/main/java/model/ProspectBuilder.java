@@ -2,11 +2,10 @@ package model;
 
 public class ProspectBuilder {
 
-    /* TODO
-     * Composition toepassen met de volgende classes: Job, Address, SocialLinks
-    */
+    private int id;
     private String name;
-    private String profession;
+    private Address address;
+    private Profession profession;
     private String phoneNumber;
     private SocialLinks socialLinks;
     private Status status;
@@ -19,7 +18,15 @@ public class ProspectBuilder {
         return this;
     }
 
-    public ProspectBuilder profession(String profession) {
+    public ProspectBuilder address(Address address) {
+        if (address == null) {
+            throw new NullPointerException();
+        }
+        this.address = address;
+        return this;
+    }
+
+    public ProspectBuilder profession(Profession profession) {
         if(profession == null) {
             throw new NullPointerException();
         }
@@ -52,6 +59,6 @@ public class ProspectBuilder {
     }
 
     public Prospect build() {
-        return new Prospect(name, profession, phoneNumber, socialLinks, status);
+        return new Prospect(name, address, profession, phoneNumber, socialLinks, status);
     }
 }
