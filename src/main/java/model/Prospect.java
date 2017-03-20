@@ -27,7 +27,7 @@ public class Prospect {
     @Column
 	private String _linkedInLink;
 
-	Prospect(String name, String jobTitle, String phoneNumber, String emailAddress, String facebookLink, String linkedInLink) {
+	public Prospect(String name, String jobTitle, String phoneNumber, String emailAddress, String facebookLink, String linkedInLink) {
 	    _name = name;
 	    _jobTitle = jobTitle;
 	    _phoneNumber = phoneNumber;
@@ -36,7 +36,7 @@ public class Prospect {
 	    _linkedInLink = linkedInLink;
     }
 
-    Prospect() {
+    public Prospect() {
 
     }
 
