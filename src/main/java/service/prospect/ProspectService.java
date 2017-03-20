@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProspectService {
 
-    void insert(Prospect prospect);
+    boolean insert(Prospect prospect);
 
     List getAll();
 

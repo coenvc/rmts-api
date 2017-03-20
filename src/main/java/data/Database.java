@@ -14,16 +14,18 @@ public class Database {
         return new MetadataSources(registry).buildMetadata().buildSessionFactory();
     }
 
-    public static void save(Object object) {
+    public static boolean save(Object object) {
         Session session = Database.SESSION.openSession();
 
         session.beginTransaction();
 
-        session.save(object);
+        boolean result = session.save(object) != null;
 
         session.getTransaction().commit();
 
         session.close();
+
+        return result;
     }
 }
 

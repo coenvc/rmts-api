@@ -10,13 +10,17 @@
         <property name="connection.password">Habibke</property>
 
         <!--Hibernate settings-->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create-drop</property>
         <property name="show_sql">true</property>
 
         <!--Mappings-->
         <mapping class="model.Test"/>
         <mapping class="model.Prospect"/>
         <mapping class="model.User"/>
+        <mapping class="model.Address"/>
+        <mapping class="model.SocialLinks"/>
+        <mapping class="model.Status"/>
+        <mapping class="model.Profession"/>
 
     </session-factory>
 </hibernate-configuration>

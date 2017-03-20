@@ -12,20 +12,19 @@ public class Prospect {
     @Column
     private String name;
 
-    @OneToOne
+    @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
 
-    @Column
+    @OneToOne(targetEntity = Profession.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Profession profession;
 
     @Column
     private String phoneNumber;
 
-    @Column
-    @OneToMany(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private SocialLinks socialLinks;
 
-    @OneToMany(targetEntity = Status.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Status.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Status status;
 
     public Prospect() {

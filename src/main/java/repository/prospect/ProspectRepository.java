@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProspectRepository {
 
-    void insert(Prospect prospect);
+    boolean insert(Prospect prospect);
     List getAll();
     Prospect find(int id);
 

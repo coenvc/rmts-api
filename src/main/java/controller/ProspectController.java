@@ -29,7 +29,7 @@ public class ProspectController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public Prospect register(@RequestBody Prospect prospect) {
-        return prospect;
+    public boolean register(@RequestBody Prospect prospect) {
+        return service.insert(prospect);
     }
 }

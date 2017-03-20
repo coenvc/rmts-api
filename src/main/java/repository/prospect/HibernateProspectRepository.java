@@ -9,8 +9,8 @@ import java.util.List;
 
 public class HibernateProspectRepository implements ProspectRepository {
 
-    public void insert(Prospect prospect) {
-        Database.save(prospect);
+    public boolean insert(Prospect prospect) {
+        return Database.save(prospect);
     }
 
     public List getAll() {
