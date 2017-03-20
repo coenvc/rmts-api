@@ -25,25 +25,8 @@ public class Prospect {
     @OneToMany(targetEntity = Status.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Status status;
 
-<<<<<<< HEAD
     public Prospect() {
-
     }
-=======
-    @Column
-	private String _linkedInLink;
-
-	public Prospect(String name, String jobTitle, String phoneNumber, String emailAddress, String facebookLink, String linkedInLink) {
-	    _name = name;
-	    _jobTitle = jobTitle;
-	    _phoneNumber = phoneNumber;
-	    _emailAddress = emailAddress;
-	    _facebookLink = facebookLink;
-	    _linkedInLink = linkedInLink;
-    }
-
-    public Prospect() {
->>>>>>> origin/master
 
     public Prospect(String name, String profession, String phoneNumber, SocialLinks socialLinks, Status status) {
         this.name = name;
