@@ -5,26 +5,25 @@ public class ProspectBuilder {
     /* TODO
      * Composition toepassen met de volgende classes: Job, Address, SocialLinks
     */
-    private String _name;
-    private String _jobTitle;
-    private String _phoneNumber;
-    private String _emailAddress;
-    private String _facebookLink;
-    private String _linkedInLink;
+    private String name;
+    private String profession;
+    private String phoneNumber;
+    private SocialLinks socialLinks;
+    private Status status;
 
     public ProspectBuilder name(String name) {
         if(name == null) {
             throw new NullPointerException();
         }
-        this._name = name;
+        this.name = name;
         return this;
     }
 
-    public ProspectBuilder jobTitle(String jobTitle) {
-        if(jobTitle == null) {
+    public ProspectBuilder profession(String profession) {
+        if(profession == null) {
             throw new NullPointerException();
         }
-        this._jobTitle = jobTitle;
+        this.profession = profession;
         return this;
     }
 
@@ -32,36 +31,27 @@ public class ProspectBuilder {
         if(phoneNumber == null) {
             throw new NullPointerException();
         }
-        this._phoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
         return this;
     }
 
-    public ProspectBuilder emailAddress(String emailAddress) {
-        if(emailAddress == null) {
+    public ProspectBuilder socialLinks(SocialLinks socialLinks) {
+        if(socialLinks == null) {
             throw new NullPointerException();
         }
-        this._emailAddress = emailAddress;
+        this.socialLinks = socialLinks;
         return this;
     }
 
-    public ProspectBuilder facebookLink(String facebookLink) {
-        if(facebookLink == null) {
+    public ProspectBuilder status(Status status) {
+        if(status == null) {
             throw new NullPointerException();
         }
-        this._facebookLink = facebookLink;
-        return this;
-    }
-
-    public ProspectBuilder linkedInLink(String linkedInLink) {
-        if(linkedInLink == null) {
-            throw new NullPointerException();
-        }
-        this._linkedInLink = linkedInLink;
+        this.status = status;
         return this;
     }
 
     public Prospect build() {
-        Prospect prospect = new Prospect(_name, _jobTitle, _phoneNumber, _emailAddress, _facebookLink, _linkedInLink);
-        return prospect;
+        return new Prospect(name, profession, phoneNumber, socialLinks, status);
     }
 }

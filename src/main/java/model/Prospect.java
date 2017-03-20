@@ -7,86 +7,83 @@ public class Prospect {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int _id;
+    private int id;
 
     @Column
-	private String _name;
+    private String name;
 
     @Column
-	private String _jobTitle;
+    private String profession;
 
     @Column
-	private String _phoneNumber;
+    private String phoneNumber;
 
     @Column
-	private String _emailAddress;
+    @OneToMany(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private SocialLinks socialLinks;
 
-    @Column
-	private String _facebookLink;
+    @OneToMany(targetEntity = Status.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Status status;
 
-    @Column
-	private String _linkedInLink;
-
-	Prospect(String name, String jobTitle, String phoneNumber, String emailAddress, String facebookLink, String linkedInLink) {
-	    _name = name;
-	    _jobTitle = jobTitle;
-	    _phoneNumber = phoneNumber;
-	    _emailAddress = emailAddress;
-	    _facebookLink = facebookLink;
-	    _linkedInLink = linkedInLink;
-    }
-
-    Prospect() {
+    public Prospect() {
 
     }
 
-	//region Getters & Setters
-    public String get_name() {
-        return _name;
+    public Prospect(String name, String profession, String phoneNumber, SocialLinks socialLinks, Status status) {
+        this.name = name;
+        this.profession = profession;
+        this.phoneNumber = phoneNumber;
+        this.socialLinks = socialLinks;
+        this.status = status;
     }
 
-    public void set_name(String _name) {
-        this._name = _name;
+    //region Getters & Setters
+    public int getid() {
+        return id;
     }
 
-    public String get_jobTitle() {
-        return _jobTitle;
+    public void setid(int id) {
+        this.id = id;
     }
 
-    public void set_jobTitle(String _jobTitle) {
-        this._jobTitle = _jobTitle;
+    public String getname() {
+        return name;
     }
 
-    public String get_phoneNumber() {
-        return _phoneNumber;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public void set_phoneNumber(String _phoneNumber) {
-        this._phoneNumber = _phoneNumber;
+    public String getprofession() {
+        return profession;
     }
 
-    public String get_emailAddress() {
-        return _emailAddress;
+    public void setprofession(String profession) {
+        this.profession = profession;
     }
 
-    public void set_emailAddress(String _emailAddress) {
-        this._emailAddress = _emailAddress;
+    public String getphoneNumber() {
+        return phoneNumber;
     }
 
-    public String get_facebookLink() {
-        return _facebookLink;
+    public void setphoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void set_facebookLink(String _facebookLink) {
-        this._facebookLink = _facebookLink;
+    public SocialLinks getSocialLinks() {
+        return socialLinks;
     }
 
-    public String get_linkedInLink() {
-        return _linkedInLink;
+    public void setSocialLinks(SocialLinks socialLinks) {
+        this.socialLinks = socialLinks;
     }
 
-    public void set_linkedInLink(String _linkedInLink) {
-        this._linkedInLink = _linkedInLink;
+    public Status getstatus() {
+        return status;
+    }
+
+    public void setstatus(Status status) {
+        this.status = status;
     }
     //endregion
 }
