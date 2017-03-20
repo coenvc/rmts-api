@@ -5,15 +5,23 @@ import model.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
+
 import java.util.List;
 
 public class HibernateUserRepository implements UserRepository {
 
-    public boolean login(User user) {
+
+    public User login(String username, String password) {
+
         Session session = Database.SESSION.openSession();
-        return false;
+
+        User user = (User) session.createQuery("FROM User WHERE username = :username AND password = :password")
+                .setParameter("username",username)
+                .setParameter("password", password)
+                .uniqueResult();
+
+        return user;
+
     }
 
     public void insert(User user) {

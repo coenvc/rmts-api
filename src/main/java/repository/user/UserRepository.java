@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface UserRepository {
 
-    boolean login(User user);
+
+    User login(String username, String password);
 
     void insert(User user);
 

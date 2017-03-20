@@ -41,14 +41,6 @@ public class User {
         this.username = _username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String _password) {
-        this.password = _password;
-    }
-
     public String getName() {
         return name;
     }

@@ -5,12 +5,12 @@
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <!--Database settings-->
-        <property name="connection.url">jdbc:mysql://84.24.62.136:3306/rmts?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+        <property name="connection.url">jdbc:mysql://10.213.112.114:3306/rmts?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
         <property name="connection.username">RMTS</property>
         <property name="connection.password">Habibke</property>
 
         <!--Hibernate settings-->
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
 
         <!--Mappings-->
