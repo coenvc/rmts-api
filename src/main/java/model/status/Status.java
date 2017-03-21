@@ -12,6 +12,11 @@ public class Status {
     private String content;
 
     public Status() {
+
+    }
+
+    public Status(String content) {
+        this.content = content;
     }
 
     //region Setters & Getters
