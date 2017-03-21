@@ -1,5 +1,7 @@
 package model;
 
+import model.status.Status;
+
 public class ProspectBuilder {
 
     private int id;
