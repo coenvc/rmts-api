@@ -25,6 +25,6 @@ public class DefaultUserServiceTest {
     @Test
     public void find() throws Exception {
         User user = service.find(1);
-        assertEquals(user.get_id(), 1);
+        assertEquals(user.getId(), 1);
     }
 }
