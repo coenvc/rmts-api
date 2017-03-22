@@ -23,6 +23,9 @@ public class Prospect {
     @Column
     private String phoneNumber;
 
+    @Column
+    private String emailAddress;
+
     @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private SocialLinks socialLinks;
 
@@ -33,11 +36,12 @@ public class Prospect {
 
     }
 
-    public Prospect(String name, Address address, Profession profession, String phoneNumber, SocialLinks socialLinks, Status status) {
+    public Prospect(String name, Address address, Profession profession, String phoneNumber, String emailAddress, SocialLinks socialLinks, Status status) {
         this.name = name;
         this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
         this.socialLinks = socialLinks;
         this.status = status;
     }
@@ -99,6 +103,14 @@ public class Prospect {
 
     public void setstatus(Status status) {
         this.status = status;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
     //endregion
 }
