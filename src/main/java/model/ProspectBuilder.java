@@ -21,6 +21,14 @@ public class ProspectBuilder {
         return this;
     }
 
+    public ProspectBuilder emailAddress(String emailAddress){
+        if(emailAddress == null){
+            throw new NullPointerException();
+        }
+        this.emailAddress = emailAddress;
+        return this;
+    }
+
     public ProspectBuilder address(Address address) {
         if (address == null) {
             throw new NullPointerException();
@@ -42,11 +50,6 @@ public class ProspectBuilder {
             throw new NullPointerException();
         }
         this.phoneNumber = phoneNumber;
-        return this;
-    }
-
-    public ProspectBuilder emailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
         return this;
     }
 

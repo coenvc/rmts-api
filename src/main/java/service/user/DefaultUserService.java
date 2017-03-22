@@ -9,6 +9,10 @@ public class DefaultUserService implements UserService {
 
     private UserRepository repository;
 
+    public User login(String username, String password) {
+        return repository.login(username, password);
+    }
+
     public void insert(User user) {
         repository.insert(user);
     }

@@ -38,6 +38,7 @@ public class Prospect {
 
     public Prospect(String name, Address address, Profession profession, String phoneNumber, String emailAddress, SocialLinks socialLinks, Status status) {
         this.name = name;
+        this.emailAddress = emailAddress;
         this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
@@ -46,9 +47,7 @@ public class Prospect {
         this.status = status;
     }
 
-    //region Getters & Setters
-
-
+//region Getters & Setters
     public Address getAddress() {
         return address;
     }

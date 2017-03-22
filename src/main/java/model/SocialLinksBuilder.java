@@ -2,38 +2,38 @@ package model;
 
 public class SocialLinksBuilder {
 
-    private String facebookLink;
-    private String linkedinLink;
-    private String twitterLink;
+    private String facebook;
+    private String linkedin;
+    private String twitter;
 
-    public SocialLinksBuilder facebookLink(String facebookLink)
+    public SocialLinksBuilder facebook(String facebook)
     {
-        if(facebookLink.contains("")) {
+        if(facebook.contains("")) {
             throw new NullPointerException();
         }
-        this.facebookLink = facebookLink;
+        this.facebook = facebook;
         return this;
     }
 
-    public SocialLinksBuilder linkedinLink(String linkedinLink)
+    public SocialLinksBuilder linkedin(String linkedin)
     {
-        if(linkedinLink.contains("")) {
+        if(linkedin.contains("")) {
             throw new NullPointerException();
         }
-        this.linkedinLink = linkedinLink;
+        this.linkedin = linkedin;
         return this;
     }
 
-    public SocialLinksBuilder twitterLink(String twitterLink)
+    public SocialLinksBuilder twitter(String twitter)
     {
-        if(twitterLink.contains("")) {
+        if(twitter.contains("")) {
             throw new NullPointerException();
         }
-        this.twitterLink = twitterLink;
+        this.twitter = twitter;
         return this;
     }
 
     public SocialLinks build(){
-        return new SocialLinks(facebookLink, linkedinLink, twitterLink);
+        return new SocialLinks(facebook, linkedin, twitter);
     }
 }
