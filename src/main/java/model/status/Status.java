@@ -8,7 +8,7 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
+    @Column(unique = true)
     private String content;
 
     public Status() {
