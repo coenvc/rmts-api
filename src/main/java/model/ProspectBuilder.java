@@ -78,7 +78,6 @@ public class ProspectBuilder {
 
     private void checkProperties() {
         if (firstName.equals("")) throw new IllegalArgumentException("No first name provided");
-        if (infix.equals("")) throw new IllegalArgumentException("No infix name provided");
         if (surname.equals("")) throw new IllegalArgumentException("No surname name provided");
         if (address == null) throw new IllegalArgumentException("No address name provided");
         if (profession == null) throw new IllegalArgumentException("No profession name provided");
