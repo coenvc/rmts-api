@@ -29,6 +29,9 @@ public class Prospect {
     @Column
     private String imageUrl;
 
+    @Column
+    private String description;
+
     @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private SocialLinks socialLinks;
 
@@ -39,7 +42,7 @@ public class Prospect {
 
     }
 
-    public Prospect(String name, Address address, Profession profession, String phoneNumber, String emailAddress, SocialLinks socialLinks, Status status, String imageUrl) {
+    public Prospect(String name, Address address, Profession profession, String phoneNumber, String emailAddress, SocialLinks socialLinks, Status status, String imageUrl, String description) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.address = address;
@@ -49,6 +52,7 @@ public class Prospect {
         this.socialLinks = socialLinks;
         this.status = status;
         this.imageUrl = imageUrl;
+        this.description = description;
     }
 
 //region Getters & Setters
@@ -122,6 +126,14 @@ public class Prospect {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     //endregion
 }

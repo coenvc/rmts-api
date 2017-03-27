@@ -11,6 +11,7 @@ public class ProspectBuilder {
     private String phoneNumber;
     private String emailAddress;
     private String imageUrl;
+    private String description;
     private SocialLinks socialLinks;
     private Status status;
 
@@ -71,6 +72,11 @@ public class ProspectBuilder {
         return this;
     }
 
+    public ProspectBuilder description(String description) {
+        this.description = description;
+        return this;
+    }
+
     public ProspectBuilder status(Status status) {
         if(status == null) {
             throw new NullPointerException();
@@ -80,6 +86,6 @@ public class ProspectBuilder {
     }
 
     public Prospect build() {
-        return new Prospect(name, address, profession, phoneNumber, emailAddress, socialLinks, status, imageUrl);
+        return new Prospect(name, address, profession, phoneNumber, emailAddress, socialLinks, status, imageUrl, description);
     }
 }
