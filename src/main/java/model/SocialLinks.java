@@ -12,7 +12,7 @@ public class SocialLinks {
     private String facebook;
 
     @Column
-    private String linkdIn;
+    private String linkedIn;
 
     @Column
     private String twitter;
@@ -23,7 +23,7 @@ public class SocialLinks {
 
     public SocialLinks(String facebookLink, String linkedinLink, String twitterLink) {
         this.facebook = facebookLink;
-        this.linkdIn = linkedinLink;
+        this.linkedIn = linkedinLink;
         this.twitter = twitterLink;
     }
 
@@ -41,12 +41,12 @@ public class SocialLinks {
         this.facebook = facebook;
     }
 
-    public String getLinkdIn() {
-        return linkdIn;
+    public String getLinkedIn() {
+        return linkedIn;
     }
 
-    public void setLinkdIn(String linkdIn) {
-        this.linkdIn = linkdIn;
+    public void setLinkedIn(String linkdIn) {
+        this.linkedIn = linkdIn;
     }
 
     public String getTwitter() {
