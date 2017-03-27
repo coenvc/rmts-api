@@ -51,7 +51,7 @@ public class ProspectBuilderTest {
                 .build();
 
         assertEquals(prospect.getfirstName(), "Theo");
-        assertEquals(prospect.getSurName(), "Estpersoon");
+        assertEquals(prospect.getSurname(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
@@ -78,7 +78,7 @@ public class ProspectBuilderTest {
 
         assertEquals(prospect.getfirstName(), "Theo");
         assertEquals(prospect.getInfix(), "van den");
-        assertEquals(prospect.getSurName(), "Estpersoon");
+        assertEquals(prospect.getSurname(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
@@ -104,7 +104,7 @@ public class ProspectBuilderTest {
                 .build();
 
         assertEquals(prospect.getfirstName(), "Theo");
-        assertEquals(prospect.getSurName(), "Estpersoon");
+        assertEquals(prospect.getSurname(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
@@ -186,6 +186,10 @@ public class ProspectBuilderTest {
 
     @Test
     public void emailAddressIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("The ProspectBuilder did not receive a valid Profession.email.");
+
         Prospect prospect = new ProspectBuilder()
                 .firstName("Theo")
                 .surName("Estpersoon")
