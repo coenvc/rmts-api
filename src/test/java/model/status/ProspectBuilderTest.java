@@ -41,7 +41,7 @@ public class ProspectBuilderTest {
                 .status(status)
                 .build();
 
-        assertEquals(prospect.getname(), "Theo Estpersoon");
+        assertEquals(prospect.getfirstName(), "Theo");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
@@ -65,7 +65,7 @@ public class ProspectBuilderTest {
                 .name("Theo Estpersoon")
                 .build();
 
-        assertEquals(prospect.getname(), "Theo Estpersoon");
+        assertEquals(prospect.getfirstName(), "Theo");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
