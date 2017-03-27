@@ -27,4 +27,10 @@ public class DefaultUserServiceTest {
         User user = service.find(1);
         assertEquals(user.getId(), 1);
     }
+
+    @Test
+    public void login() throws Exception{
+        User user = service.login("T.est", "Hallo");
+        assertEquals(user.getName(), "Teun Est");
+    }
 }
