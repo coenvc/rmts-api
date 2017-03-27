@@ -27,7 +27,7 @@ public class ProfessionBuilderTest {
     public void nameIsNull_throwsException() {
 
         expected.expect(IllegalArgumentException.class);
-        expected.expectMessage("No name specified.");
+        expected.expectMessage("No name provided.");
         Profession profession = new ProfessionBuilder()
                 .build();
     }

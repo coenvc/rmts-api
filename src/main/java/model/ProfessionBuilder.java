@@ -2,7 +2,7 @@ package model;
 
 public class ProfessionBuilder {
 
-    private String name;
+    private String name = "";
 
     public ProfessionBuilder name(String name){
         this.name = name;
