@@ -37,30 +37,13 @@ public class UserBuilder {
     }
 
     public User build() {
-        if (checkProperties()) {
-            return new User(username, password, name, active);
-        }
-        return null;
+        checkProperties();
+        return new User(username, password, name, active);
     }
 
-    private boolean checkProperties() {
-        if (username.equals("") || username == null) {
-            System.out.println("The UserBuilder did not receive a valid Username.");
-            return false;
-        }
-
-
-        if (name.equals("") || password == null) {
-            System.out.println("The UserBuilder did not receive a valid Name.");
-            return false;
-        }
-
-
-        if (password.equals("") || password == null) {
-            System.out.println("The UserBuilder did not receive a valid Password.");
-            return false;
-        }
-
-        return true;
+    private void checkProperties() {
+        if (username.equals("")) throw new IllegalArgumentException("No username provided.");
+        if (name.equals("")) throw new IllegalArgumentException("No name provided.");
+        if (password.equals("")) throw new IllegalArgumentException("No password provided.");
     }
 }
