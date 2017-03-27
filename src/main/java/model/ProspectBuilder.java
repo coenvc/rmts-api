@@ -1,19 +1,17 @@
 package model;
 
 import model.status.Status;
-import model.status.StatusCode;
-import model.status.StatusFactory;
 
 public class ProspectBuilder {
 
     private String firstName;
     private String infix;
-    private String surName;
+    private String surname;
     private Address address;
     private Profession profession;
     private String phoneNumber;
     private String emailAddress;
-    private String imageUrl;
+    private String imageUrl = "http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png";
     private String description;
     private SocialLinks socialLinks;
     private Status status;
@@ -29,7 +27,7 @@ public class ProspectBuilder {
     }
 
     public ProspectBuilder surName(String surname) {
-        this.surName = surname;
+        this.surname = surname;
         return this;
     }
 
@@ -74,39 +72,20 @@ public class ProspectBuilder {
     }
 
     public Prospect build() {
-        if (checkProperties()) {
-            return new Prospect(firstName, infix, surName, address, profession, phoneNumber, emailAddress, imageUrl, description, socialLinks, status);
-        }
-        return null;
+        checkProperties();
+        return new Prospect(firstName, infix, surname, address, profession, phoneNumber, emailAddress, imageUrl, description, socialLinks, status);
     }
 
-    private boolean checkProperties() {
-        if (firstName.equals("") || firstName == null) {
-            System.out.println("The ProspectBuilder did not receive a valid First Name.");
-            return false;
-        }
-
-        if (surName.equals("") || surName == null) {
-            System.out.println("The ProspectBuilder did not receive a valid Surname.");
-            return false;
-        }
-
-        if (emailAddress.equals("") || emailAddress == null) {
-            System.out.println("The ProspectBuilder did not receive a valid Email Address.");
-            return false;
-        }
-
-        if (profession.getName().equals("") || profession == null) {
-            System.out.println("The ProspectBuilder did not receive a valid Profession.Name.");
-            return false;
-        }
-
-        if (status.getContent().equals("") || status == null) {
-            System.out.println("The ProspectBuilder did not receive a valid Status.Content");
-            System.out.println("The default status has been assigned instead. It is not ");
-            status(new StatusFactory().build(StatusCode.ACTIVE));
-        }
-
-        return true;
+    private void checkProperties() {
+        if (firstName.equals("")) throw new IllegalArgumentException("No first name provided");
+        if (infix.equals("")) throw new IllegalArgumentException("No infix name provided");
+        if (surname.equals("")) throw new IllegalArgumentException("No surname name provided");
+        if (address == null) throw new IllegalArgumentException("No address name provided");
+        if (profession == null) throw new IllegalArgumentException("No profession name provided");
+        if (phoneNumber.equals("")) throw new IllegalArgumentException("No phone number provided");
+        if (emailAddress.equals("")) throw new IllegalArgumentException("No email address provided");
+        if (description.equals("")) throw new IllegalArgumentException("No description provided");
+        if (socialLinks == null) throw new IllegalArgumentException("No social links provided");
+        if (status == null) throw new IllegalArgumentException("No status provided");
     }
 }

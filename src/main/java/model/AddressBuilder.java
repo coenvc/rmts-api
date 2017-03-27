@@ -46,6 +46,4 @@ public class AddressBuilder {
         if (zipcode == null) throw new IllegalArgumentException("No zipcode specified.");
     }
     //endregion
-
-
 }
