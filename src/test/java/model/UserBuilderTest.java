@@ -44,6 +44,7 @@ public class UserBuilderTest {
         User u3 = new UserBuilder()
                 .username("bvmierd")
                 .password("test56")
+                .name("")
                 .active(true)
                 .build();
     }
@@ -56,6 +57,7 @@ public class UserBuilderTest {
 
         User u4 = new UserBuilder()
                 .name("Bernd van Mierd")
+                .username("")
                 .password("test56")
                 .active(true)
                 .build();
@@ -70,7 +72,10 @@ public class UserBuilderTest {
         User u5 = new UserBuilder()
                 .name("Bernd van Mierd")
                 .username("bvmierd")
+                .password("")
                 .active(true)
                 .build();
     }
+
+
 }
