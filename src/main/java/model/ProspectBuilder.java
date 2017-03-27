@@ -1,10 +1,11 @@
 package model;
 
 import model.status.Status;
+import model.status.StatusCode;
+import model.status.StatusFactory;
 
 public class ProspectBuilder {
 
-    private int id;
     private String name;
     private Address address;
     private Profession profession;
@@ -14,62 +15,69 @@ public class ProspectBuilder {
     private Status status;
 
     public ProspectBuilder name(String name) {
-        if(name == null) {
-            throw new NullPointerException();
-        }
         this.name = name;
         return this;
     }
 
-    public ProspectBuilder emailAddress(String emailAddress){
-        if(emailAddress == null){
-            throw new NullPointerException();
-        }
+    public ProspectBuilder emailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
 
     public ProspectBuilder address(Address address) {
-        if (address == null) {
-            throw new NullPointerException();
-        }
         this.address = address;
         return this;
     }
 
     public ProspectBuilder profession(Profession profession) {
-        if(profession == null) {
-            throw new NullPointerException();
-        }
         this.profession = profession;
         return this;
     }
 
     public ProspectBuilder phoneNumber(String phoneNumber) {
-        if(phoneNumber == null) {
-            throw new NullPointerException();
-        }
         this.phoneNumber = phoneNumber;
         return this;
     }
 
     public ProspectBuilder socialLinks(SocialLinks socialLinks) {
-        if(socialLinks == null) {
-            throw new NullPointerException();
-        }
         this.socialLinks = socialLinks;
         return this;
     }
 
     public ProspectBuilder status(Status status) {
-        if(status == null) {
-            throw new NullPointerException();
-        }
         this.status = status;
         return this;
     }
 
     public Prospect build() {
-        return new Prospect(name, address, profession, phoneNumber, emailAddress, socialLinks, status);
+        if (checkProperties()) {
+            return new Prospect(name, address, profession, phoneNumber, emailAddress, socialLinks, status);
+        }
+        return null;
+    }
+
+    private boolean checkProperties() {
+        if (name.equals("") || name == null) {
+            System.out.println("The ProspectBuilder did not receive a valid Name.");
+            return false;
+        }
+
+        if (emailAddress.equals("") || emailAddress == null) {
+            System.out.println("The ProspectBuilder did not receive a valid Email Address.");
+            return false;
+        }
+
+        if (profession.getName().equals("") || profession == null) {
+            System.out.println("The ProspectBuilder did not receive a valid Profession.Name.");
+            return false;
+        }
+
+        if(status.getContent().equals("") || status == null){
+            System.out.println("The ProspectBuilder did not receive a valid Status.Content");
+            System.out.println("The default status has been assigned instead. It is not ");
+            status(new StatusFactory().build(StatusCode.ACTIVE));
+        }
+
+        return true;
     }
 }

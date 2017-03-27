@@ -2,16 +2,16 @@ package model;
 
 public class UserBuilder {
 
-    private String _username;
-    private String _password;
-    private String _name;
-    private boolean _active = false;
+    private String username;
+    private String password;
+    private String name;
+    private boolean active = false;
 
     public UserBuilder username(String username) {
         if (username == null) {
             throw new NullPointerException("Username is missing");
         }
-        this._username = username;
+        this.username = username;
         return this;
     }
 
@@ -19,7 +19,7 @@ public class UserBuilder {
         if (password == null) {
             throw new NullPointerException("Password is missing");
         }
-        this._password = password;
+        this.password = password;
         return this;
     }
 
@@ -27,16 +27,40 @@ public class UserBuilder {
         if (name == null) {
             throw new NullPointerException("Name is missing");
         }
-        this._name = name;
+        this.name = name;
         return this;
     }
 
     public UserBuilder active(boolean active) {
-        this._active = active;
+        this.active = active;
         return this;
     }
 
     public User build() {
-        return new User(_username, _password, _name, _active);
+        if (checkProperties()) {
+            return new User(username, password, name, active);
+        }
+        return null;
+    }
+
+    private boolean checkProperties() {
+        if (username.equals("") || username == null) {
+            System.out.println("The UserBuilder did not receive a valid Username.");
+            return false;
+        }
+
+
+        if (name.equals("") || password == null) {
+            System.out.println("The UserBuilder did not receive a valid Name.");
+            return false;
+        }
+
+
+        if (password.equals("") || password == null) {
+            System.out.println("The UserBuilder did not receive a valid Password.");
+            return false;
+        }
+
+        return true;
     }
 }
