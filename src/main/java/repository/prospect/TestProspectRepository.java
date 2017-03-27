@@ -15,10 +15,13 @@ public class TestProspectRepository implements ProspectRepository {
         List<Prospect> prospects = new ArrayList<Prospect>();
 
         Prospect p1 = new ProspectBuilder()
-                .name("Henk Jansen")
+                .firstName("Henk")
+                .infix("van de")
+                .surName("Koning")
                 .phoneNumber("0612345678")
-                .emailAddress("HansJansen@gmail.com")
+                .emailAddress("HenkvandeKoning@gmail.com")
                 .imageUrl("Google.com")
+                .description("Goede vent!")
                 .address(new AddressBuilder()
                         .street("Kerkstraat")
                         .houseNumber("10")
@@ -38,10 +41,13 @@ public class TestProspectRepository implements ProspectRepository {
                 .build();
 
         Prospect p2 = new ProspectBuilder()
-                .name("Jan De Vries")
+                .firstName("Jan")
+                .infix("de")
+                .surName("Vries")
                 .phoneNumber("0687654321")
                 .emailAddress("JanDeVries@gmail.com")
                 .imageUrl("Google.com")
+                .description("Ruikt een beetje gek")
                 .address(new AddressBuilder()
                         .street("Kerkstraat")
                         .houseNumber("15")

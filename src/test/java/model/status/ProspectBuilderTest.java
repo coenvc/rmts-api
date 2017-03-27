@@ -31,7 +31,8 @@ public class ProspectBuilderTest {
     public void propertiesSetInRightOrder_buildsCorrectly() {
 
         Prospect prospect = new ProspectBuilder()
-                .name("Theo Estpersoon")
+                .firstName("Theo")
+                .surName("Estpersoon")
                 .address(address)
                 .profession(profession)
                 .phoneNumber("0612341234")
@@ -41,7 +42,8 @@ public class ProspectBuilderTest {
                 .status(status)
                 .build();
 
-        assertEquals(prospect.getname(), "Theo Estpersoon");
+        assertEquals(prospect.getfirstName(), "Theo");
+        assertEquals(prospect.getSurName(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
@@ -62,10 +64,12 @@ public class ProspectBuilderTest {
                 .emailAddress("T.Estpersoon@Test.nl")
                 .address(address)
                 .phoneNumber("0612341234")
-                .name("Theo Estpersoon")
+                .firstName("Theo")
+                .surName("Estpersoon")
                 .build();
 
-        assertEquals(prospect.getname(), "Theo Estpersoon");
+        assertEquals(prospect.getfirstName(), "Theo");
+        assertEquals(prospect.getSurName(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");

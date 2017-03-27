@@ -20,7 +20,6 @@ public class SocialLinksBuilder {
 
     public SocialLinksBuilder twitter(String twitter)
     {
-
         this.twitter = twitter;
         return this;
     }
