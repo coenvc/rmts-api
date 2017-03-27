@@ -14,7 +14,6 @@
         <property name="show_sql">true</property>
 
         <!--Mappings-->
-        <mapping class="model.Test"/>
         <mapping class="model.Prospect"/>
         <mapping class="model.User"/>
         <mapping class="model.Address"/>
