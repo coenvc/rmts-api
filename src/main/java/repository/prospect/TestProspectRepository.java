@@ -3,7 +3,6 @@ package repository.prospect;
 import model.*;
 import model.status.StatusCode;
 import model.status.StatusFactory;
-import org.omg.PortableInterceptor.ACTIVE;
 
 import java.util.ArrayList;
 import java.util.List;

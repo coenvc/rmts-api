@@ -1,6 +1,6 @@
 package model;
 
-import model.*;
+
 import model.status.Status;
 import model.status.StatusCode;
 import model.status.StatusFactory;
@@ -46,17 +46,19 @@ public class ProspectBuilderTest {
                 .phoneNumber("0612341234")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
 
         assertEquals(prospect.getfirstName(), "Theo");
-        assertEquals(prospect.getSurName(), "Estpersoon");
+        assertEquals(prospect.getSurname(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
         assertEquals(prospect.getEmailAddress(), "T.Estpersoon@Test.nl");
         assertEquals(prospect.getImageUrl(), "img/user.png");
+        assertEquals(prospect.getDescription(), "Potentieel lid");
         assertEquals(prospect.getSocialLinks(), links);
         assertEquals(prospect.getstatus(), status);
     }
@@ -72,18 +74,20 @@ public class ProspectBuilderTest {
                 .phoneNumber("0612341234")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
 
         assertEquals(prospect.getfirstName(), "Theo");
         assertEquals(prospect.getInfix(), "van den");
-        assertEquals(prospect.getSurName(), "Estpersoon");
+        assertEquals(prospect.getSurname(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
         assertEquals(prospect.getEmailAddress(), "T.Estpersoon@Test.nl");
         assertEquals(prospect.getImageUrl(), "img/user.png");
+        assertEquals(prospect.getDescription(), "Potentieel lid");
         assertEquals(prospect.getSocialLinks(), links);
         assertEquals(prospect.getstatus(), status);
     }
@@ -97,6 +101,7 @@ public class ProspectBuilderTest {
                 .status(status)
                 .socialLinks(links)
                 .emailAddress("T.Estpersoon@Test.nl")
+                .description("Potentieel lid")
                 .address(address)
                 .phoneNumber("0612341234")
                 .firstName("Theo")
@@ -104,12 +109,13 @@ public class ProspectBuilderTest {
                 .build();
 
         assertEquals(prospect.getfirstName(), "Theo");
-        assertEquals(prospect.getSurName(), "Estpersoon");
+        assertEquals(prospect.getSurname(), "Estpersoon");
         assertEquals(prospect.getAddress(), address);
         assertEquals(prospect.getprofession(), profession);
         assertEquals(prospect.getphoneNumber(), "0612341234");
         assertEquals(prospect.getEmailAddress(), "T.Estpersoon@Test.nl");
         assertEquals(prospect.getImageUrl(), "img/user.png");
+        assertEquals(prospect.getDescription(), "Potentieel lid");
         assertEquals(prospect.getSocialLinks(), links);
         assertEquals(prospect.getstatus(), status);
     }
@@ -118,15 +124,17 @@ public class ProspectBuilderTest {
     public void firstNameIsNull_throwsException() {
 
         expected.expect(IllegalArgumentException.class);
-        expected.expectMessage("The ProspectBuilder did not receive a valid First Name.");
+        expected.expectMessage("No first name provided");
 
         Prospect prospect = new ProspectBuilder()
+                .firstName("")
                 .surName("Estpersoon")
                 .address(address)
                 .profession(profession)
                 .phoneNumber("0612341234")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
@@ -136,15 +144,36 @@ public class ProspectBuilderTest {
     public void surNameIsNull_throwsException() {
 
         expected.expect(IllegalArgumentException.class);
-        expected.expectMessage("The ProspectBuilder did not receive a valid Surname.");
+        expected.expectMessage("No surname name provided");
 
         Prospect prospect = new ProspectBuilder()
                 .firstName("Theo")
+                .surName("")
                 .address(address)
                 .profession(profession)
                 .phoneNumber("0612341234")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
+                .socialLinks(links)
+                .status(status)
+                .build();
+    }
+
+    @Test
+    public void addressIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No address name provided");
+
+        Prospect prospect = new ProspectBuilder()
+                .firstName("Theo")
+                .surName("Estpersoon")
+                .profession(profession)
+                .phoneNumber("0612341234")
+                .emailAddress("T.Estpersoon@Test.nl")
+                .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
@@ -154,16 +183,16 @@ public class ProspectBuilderTest {
     public void professionIsNull_throwsException() {
 
         expected.expect(IllegalArgumentException.class);
-        expected.expectMessage("The ProspectBuilder did not receive a valid Profession.Name.");
+        expected.expectMessage("No profession name provided");
 
         Prospect prospect = new ProspectBuilder()
                 .firstName("Theo")
                 .surName("Estpersoon")
                 .address(address)
-                .profession(profession)
                 .phoneNumber("0612341234")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
@@ -171,14 +200,19 @@ public class ProspectBuilderTest {
 
     @Test
     public void phoneNumberIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No phone number provided");
+
         Prospect prospect = new ProspectBuilder()
                 .firstName("Theo")
                 .surName("Estpersoon")
                 .address(address)
                 .profession(profession)
-                .phoneNumber("0612341234")
+                .phoneNumber("")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
@@ -186,21 +220,30 @@ public class ProspectBuilderTest {
 
     @Test
     public void emailAddressIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No email address provided");
+
         Prospect prospect = new ProspectBuilder()
                 .firstName("Theo")
                 .surName("Estpersoon")
                 .address(address)
                 .profession(profession)
                 .phoneNumber("0612341234")
-                .emailAddress("T.Estpersoon@Test.nl")
+                .emailAddress("")
                 .imageUrl("img/user.png")
+                .description("Potentieel lid")
                 .socialLinks(links)
                 .status(status)
                 .build();
     }
 
     @Test
-    public void statusIsNull_throwsException() {
+    public void descriptionIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No description provided");
+
         Prospect prospect = new ProspectBuilder()
                 .firstName("Theo")
                 .surName("Estpersoon")
@@ -209,8 +252,47 @@ public class ProspectBuilderTest {
                 .phoneNumber("0612341234")
                 .emailAddress("T.Estpersoon@Test.nl")
                 .imageUrl("img/user.png")
+                .description("")
                 .socialLinks(links)
                 .status(status)
+                .build();
+    }
+
+    @Test
+    public void socialLinksIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No social links provided");
+
+        Prospect prospect = new ProspectBuilder()
+                .firstName("Theo")
+                .surName("Estpersoon")
+                .address(address)
+                .profession(profession)
+                .phoneNumber("0612341234")
+                .emailAddress("T.Estpersoon@Test.nl")
+                .imageUrl("img/user.png")
+                .description("Potentieel lid")
+                .status(status)
+                .build();
+    }
+
+    @Test
+    public void statusIsNull_throwsException() {
+
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No status provided");
+
+        Prospect prospect = new ProspectBuilder()
+                .firstName("Theo")
+                .surName("Estpersoon")
+                .address(address)
+                .profession(profession)
+                .phoneNumber("0612341234")
+                .emailAddress("T.Estpersoon@Test.nl")
+                .imageUrl("img/user.png")
+                .description("Potentieel lid")
+                .socialLinks(links)
                 .build();
     }
 }
