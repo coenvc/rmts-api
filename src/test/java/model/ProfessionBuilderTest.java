@@ -21,8 +21,8 @@ public class ProfessionBuilderTest {
         assertEquals(profession.getName(), "CEO");
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void propertyIsNull_throwsException() {
+    @Test
+    public void propertyIsNull_throwsException() throws IllegalArgumentException{
         Profession profession = new ProfessionBuilder()
                 .build();
     }
