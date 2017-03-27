@@ -18,17 +18,17 @@ public class DefaultProspectServiceTest {
     private UserService service = appContext.getBean("testUserService", UserService.class);
 
     @Test
-    public boolean insert(Prospect prospect) {
+    public boolean insert() throws Exception {
         return false;
     }
 
     @Test
-    public List getAll() {
+    public List getAll() throws Exception{
         return null;
     }
 
     @Test
-    public Prospect find(int id) {
+    public Prospect find() throws Exception{
         return null;
     }
 }
