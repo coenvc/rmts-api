@@ -38,12 +38,13 @@ public class UserBuilderTest {
     @Test
     public void PropertiesNullValueExceptionName(){
 
-        expected.expect(NullPointerException.class);
-        expected.expectMessage("Name is missing");
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No name provided");
 
         User u3 = new UserBuilder()
                 .username("bvmierd")
                 .password("test56")
+                .name("")
                 .active(true)
                 .build();
     }
@@ -51,26 +52,30 @@ public class UserBuilderTest {
     @Test
     public void PropertiesNullValueExceptionUsername(){
 
-        expected.expect(NullPointerException.class);
-        expected.expectMessage("Username is missing");
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No username provided.");
 
         User u4 = new UserBuilder()
                 .name("Bernd van Mierd")
+                .username("")
                 .password("test56")
                 .active(true)
                 .build();
     }
 
-    @Test (expected = NullPointerException.class)
+    @Test
     public void PropertiesNullValueExceptionPassword(){
 
-        expected.expect(NullPointerException.class);
-        expected.expectMessage("Password is missing");
+        expected.expect(IllegalArgumentException.class);
+        expected.expectMessage("No password provided.");
 
         User u5 = new UserBuilder()
                 .name("Bernd van Mierd")
                 .username("bvmierd")
+                .password("")
                 .active(true)
                 .build();
     }
+
+
 }
