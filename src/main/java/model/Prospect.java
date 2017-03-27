@@ -12,7 +12,13 @@ public class Prospect {
     private int id;
 
     @Column
-    private String name;
+    private String firstName;
+
+    @Column
+    private String infix;
+
+    @Column
+    private String surName;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
@@ -42,20 +48,38 @@ public class Prospect {
 
     }
 
-    public Prospect(String name, Address address, Profession profession, String phoneNumber, String emailAddress, SocialLinks socialLinks, Status status, String imageUrl, String description) {
-        this.name = name;
-        this.emailAddress = emailAddress;
+    public Prospect(String firstName, String infix, String surName, Address address, Profession profession, String phoneNumber, String emailAddress, String imageUrl, String description, SocialLinks socialLinks, Status status) {
+        this.firstName = firstName;
+        this.infix = infix;
+        this.surName = surName;
         this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
-        this.socialLinks = socialLinks;
-        this.status = status;
         this.imageUrl = imageUrl;
         this.description = description;
+        this.socialLinks = socialLinks;
+        this.status = status;
     }
 
-//region Getters & Setters
+    //region Getters & Setters
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public String getInfix() {
+        return infix;
+    }
+
+    public void setInfix(String infix) {
+        this.infix = infix;
+    }
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -80,12 +104,12 @@ public class Prospect {
         this.id = id;
     }
 
-    public String getname() {
-        return name;
+    public String getfirstName() {
+        return firstName;
     }
 
-    public void setname(String name) {
-        this.name = name;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public Profession getprofession() {
