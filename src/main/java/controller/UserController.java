@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 
     private ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");

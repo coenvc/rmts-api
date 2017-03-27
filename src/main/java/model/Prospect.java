@@ -12,7 +12,13 @@ public class Prospect {
     private int id;
 
     @Column
-    private String name;
+    private String firstName;
+
+    @Column
+    private String infix;
+
+    @Column
+    private String surName;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
@@ -26,6 +32,12 @@ public class Prospect {
     @Column
     private String emailAddress;
 
+    @Column
+    private String imageUrl;
+
+    @Column
+    private String description;
+
     @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private SocialLinks socialLinks;
 
@@ -36,18 +48,46 @@ public class Prospect {
 
     }
 
-    public Prospect(String name, Address address, Profession profession, String phoneNumber, String emailAddress, SocialLinks socialLinks, Status status) {
-        this.name = name;
-        this.emailAddress = emailAddress;
+    public Prospect(String firstName, String infix, String surName, Address address, Profession profession, String phoneNumber, String emailAddress, String imageUrl, String description, SocialLinks socialLinks, Status status) {
+        this.firstName = firstName;
+        this.infix = infix;
+        this.surName = surName;
         this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
+        this.imageUrl = imageUrl;
+        this.description = description;
         this.socialLinks = socialLinks;
         this.status = status;
     }
 
-//region Getters & Setters
+    //region Getters & Setters
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public String getInfix() {
+        return infix;
+    }
+
+    public void setInfix(String infix) {
+        this.infix = infix;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Address getAddress() {
         return address;
     }
@@ -64,12 +104,12 @@ public class Prospect {
         this.id = id;
     }
 
-    public String getname() {
-        return name;
+    public String getfirstName() {
+        return firstName;
     }
 
-    public void setname(String name) {
-        this.name = name;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public Profession getprofession() {
@@ -110,6 +150,14 @@ public class Prospect {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     //endregion
 }
