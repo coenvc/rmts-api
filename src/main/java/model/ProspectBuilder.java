@@ -10,6 +10,7 @@ public class ProspectBuilder {
     private Profession profession;
     private String phoneNumber;
     private String emailAddress;
+    private String imageUrl;
     private SocialLinks socialLinks;
     private Status status;
 
@@ -53,6 +54,15 @@ public class ProspectBuilder {
         return this;
     }
 
+    public ProspectBuilder imageUrl(String imageUrl) {
+
+        if (imageUrl == null) {
+            throw new NullPointerException();
+        }
+        this.imageUrl = imageUrl;
+        return this;
+   }
+
     public ProspectBuilder socialLinks(SocialLinks socialLinks) {
         if(socialLinks == null) {
             throw new NullPointerException();
@@ -70,6 +80,6 @@ public class ProspectBuilder {
     }
 
     public Prospect build() {
-        return new Prospect(name, address, profession, phoneNumber, emailAddress, socialLinks, status);
+        return new Prospect(name, address, profession, phoneNumber, emailAddress, socialLinks, status, imageUrl);
     }
 }
