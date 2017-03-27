@@ -43,4 +43,14 @@
         <property name="repository" ref="prospectRepository"/>
     </bean>
 
+    <!--Profession wiring-->
+    <bean name="professionRepository"
+          class="repository.profession.HibernateProfessionRepository">
+    </bean>
+
+    <bean name="professionService"
+          class="service.profession.DefaultProfessionService">
+        <property name="repository" ref="professionRepository"/>
+    </bean>
+
 </beans>
