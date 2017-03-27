@@ -17,19 +17,19 @@ public class DefaultUserServiceTest {
     private UserService service = appContext.getBean("testUserService", UserService.class);
 
     @Test
-    public void getAll() throws Exception {
+    public void requestAllUsers_ReturnsList() throws Exception {
         List users = service.getAll();
         assertEquals(2, users.size());
     }
 
     @Test
-    public void find() throws Exception {
+    public void requestById_ReturnsCorrectUser() throws Exception {
         User user = service.find(1);
         assertEquals(user.getId(), 1);
     }
 
     @Test
-    public void login() throws Exception{
+    public void requestLogin_ReturnsUser() throws Exception{
         User user = service.login("T.est", "Hallo");
         assertEquals(user.getName(), "Teun Est");
     }
