@@ -1,4 +1,4 @@
-package model.status;
+package model;
 
 import model.Profession;
 import model.ProfessionBuilder;
