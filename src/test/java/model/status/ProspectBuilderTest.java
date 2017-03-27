@@ -40,5 +40,38 @@ public class ProspectBuilderTest {
                 .socialLinks(links)
                 .status(status)
                 .build();
+
+        assertEquals(prospect.getname(), "Theo Estpersoon");
+        assertEquals(prospect.getAddress(), address);
+        assertEquals(prospect.getprofession(), profession);
+        assertEquals(prospect.getphoneNumber(), "0612341234");
+        assertEquals(prospect.getEmailAddress(), "T.Estpersoon@Test.nl");
+        assertEquals(prospect.getImageUrl(), "img/user.png");
+        assertEquals(prospect.getSocialLinks(), links);
+        assertEquals(prospect.getstatus(), status);
+    }
+
+    @Test
+    public void propertiesSetInRandomOrder_buildsCorrectly() {
+
+        Prospect prospect = new ProspectBuilder()
+                .profession(profession)
+                .imageUrl("img/user.png")
+                .status(status)
+                .socialLinks(links)
+                .emailAddress("T.Estpersoon@Test.nl")
+                .address(address)
+                .phoneNumber("0612341234")
+                .name("Theo Estpersoon")
+                .build();
+
+        assertEquals(prospect.getname(), "Theo Estpersoon");
+        assertEquals(prospect.getAddress(), address);
+        assertEquals(prospect.getprofession(), profession);
+        assertEquals(prospect.getphoneNumber(), "0612341234");
+        assertEquals(prospect.getEmailAddress(), "T.Estpersoon@Test.nl");
+        assertEquals(prospect.getImageUrl(), "img/user.png");
+        assertEquals(prospect.getSocialLinks(), links);
+        assertEquals(prospect.getstatus(), status);
     }
 }
