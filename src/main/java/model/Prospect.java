@@ -18,7 +18,9 @@ public class Prospect {
     private String infix;
 
     @Column
-    private String surName;
+    private String surname;
+
+    private String fullName;
 
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
@@ -48,10 +50,10 @@ public class Prospect {
 
     }
 
-    public Prospect(String firstName, String infix, String surName, Address address, Profession profession, String phoneNumber, String emailAddress, String imageUrl, String description, SocialLinks socialLinks, Status status) {
+    public Prospect(String firstName, String infix, String surname, Address address, Profession profession, String phoneNumber, String emailAddress, String imageUrl, String description, SocialLinks socialLinks, Status status) {
         this.firstName = firstName;
         this.infix = infix;
-        this.surName = surName;
+        this.surname = surname;
         this.address = address;
         this.profession = profession;
         this.phoneNumber = phoneNumber;
@@ -64,12 +66,12 @@ public class Prospect {
 
     //region Getters & Setters
 
-    public String getSurName() {
-        return surName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setSurname(String surName) {
+        this.surname = surName;
     }
 
     public String getInfix() {
@@ -158,6 +160,10 @@ public class Prospect {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getFullName() {
+        return firstName + " " + infix + " " + surname;
     }
     //endregion
 }
