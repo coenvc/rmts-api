@@ -39,7 +39,7 @@ public class UserBuilderTest {
     public void PropertiesNullValueExceptionName(){
 
         expected.expect(IllegalArgumentException.class);
-        expected.expectMessage("No name provided");
+        expected.expectMessage("No name provided.");
 
         User u3 = new UserBuilder()
                 .username("bvmierd")
