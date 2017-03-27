@@ -36,7 +36,6 @@ public class UserBuilderTest {
         User u3 = new UserBuilder()
                 .username("bvmierd")
                 .password("test56")
-
                 .active(true)
                 .build();
     }
