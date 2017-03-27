@@ -34,6 +34,15 @@
             <property name="repository" ref="testUserRepository"/>
         </bean>
 
+        <bean name="testProspectRepository"
+              class="repository.prospect.TestProspectRepository">
+        </bean>
+
+        <bean name="testProspectService"
+              class="service.prospect.DefaultProspectService">
+            <property name="repository" ref="testProspectRepository"/>
+        </bean>
+
     <!--Prospect wiring-->
     <bean name="prospectRepository"
           class="repository.prospect.HibernateProspectRepository">
