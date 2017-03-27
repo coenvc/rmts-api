@@ -1,6 +1,9 @@
-package model.status;
+package model;
 
 import model.*;
+import model.status.Status;
+import model.status.StatusCode;
+import model.status.StatusFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
