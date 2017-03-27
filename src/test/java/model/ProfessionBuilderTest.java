@@ -32,7 +32,6 @@ public class ProfessionBuilderTest {
 
         expected.expect(InvalidArgumentException.class);
         expected.expectMessage("No name specified.");
-
         Profession profession = new ProfessionBuilder()
                 .build();
     }
