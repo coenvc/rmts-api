@@ -8,7 +8,7 @@ public interface UserRepository {
 
     User login(String username, String password);
 
-    void insert(User user);
+    boolean insert(User user);
 
     List getAll();
 

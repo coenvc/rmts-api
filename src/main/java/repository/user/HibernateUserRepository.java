@@ -23,8 +23,8 @@ public class HibernateUserRepository implements UserRepository {
         return user;
     }
 
-    public void insert(User user) {
-        Database.save(user);
+    public boolean insert(User user) {
+        return Database.save(user);
     }
 
     public List getAll() {

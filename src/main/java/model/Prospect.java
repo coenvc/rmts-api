@@ -40,10 +40,10 @@ public class Prospect {
     @Column
     private String description;
 
-    @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private SocialLinks socialLinks;
 
-    @ManyToOne(targetEntity = Status.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Status.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Status status;
 
     public Prospect() {

@@ -32,4 +32,9 @@ public class UserController {
     public User login(@RequestBody Map<String, String> values) {
         return service.login(values.get("username"), values.get("password"));
     }
+
+    @RequestMapping(value = "/register", method = {RequestMethod.POST})
+    public boolean register(@RequestBody User user) {
+        return service.insert(user);
+    }
 }

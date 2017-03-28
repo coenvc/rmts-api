@@ -9,7 +9,7 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(unique = true) //TODO: Dit doet niet wat wij denken dat het doet. De duplicate data moet anders opgelost worden.
+    @Column()
     private String content;
 
     public Status() {

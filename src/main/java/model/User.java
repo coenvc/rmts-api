@@ -64,5 +64,9 @@ public class User {
     public void setId(int _id) {
         this.id = _id;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     //endregion
 }
