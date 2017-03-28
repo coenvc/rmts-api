@@ -27,7 +27,7 @@ public class ProspectController {
 
         return service.find(id);
     }
-
+    @CrossOrigin("*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public boolean register(@RequestBody Prospect prospect) {
         return service.insert(prospect);
