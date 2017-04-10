@@ -13,6 +13,10 @@ public class DefaultProspectService implements ProspectService {
         return repository.insert(prospect);
     }
 
+    public boolean update(Prospect prospect) {
+        return repository.update(prospect);
+    }
+
     public List getAll() {
         return repository.getAll();
     }

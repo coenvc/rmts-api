@@ -33,6 +33,15 @@
             <property name="repository" ref="testProspectRepository"/>
         </bean>
 
+        <bean name="testStatusRepository"
+              class="repository.status.TestStatusRepository">
+        </bean>
+
+        <bean name="testStatusService"
+              class="service.status.DefaultStatusService">
+            <property name="repository" ref="testStatusRepository"/>
+        </bean>
+
     <!--Prospect wiring-->
     <bean name="prospectRepository"
           class="repository.prospect.HibernateProspectRepository">
@@ -51,6 +60,36 @@
     <bean name="professionService"
           class="service.profession.DefaultProfessionService">
         <property name="repository" ref="professionRepository"/>
+    </bean>
+
+    <!--Status wiring-->
+    <bean name="statusRepository"
+          class="repository.status.HibernateStatusRepository">
+    </bean>
+
+    <bean name="statusService"
+          class="service.status.DefaultStatusService">
+        <property name="repository" ref="statusRepository"/>
+    </bean>
+
+    <!--ActionType wiring-->
+    <bean name="actionTypeRepository"
+          class="repository.actionType.HibernateActionTypeRepository">
+    </bean>
+
+    <bean name="actionTypeService"
+          class="service.actionType.DefaultActionTypeService">
+        <property name="repository" ref="actionTypeRepository"/>
+    </bean>
+
+    <!--Action wiring-->
+    <bean name="actionRepository"
+          class="repository.action.HibernateActionRepository">
+    </bean>
+
+    <bean name="actionService"
+          class="service.action.DefaultActionService">
+        <property name="repository" ref="actionRepository"/>
     </bean>
 
 </beans>

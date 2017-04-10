@@ -1,6 +1,8 @@
 package repository.prospect;
 
+import data.CrudOperation;
 import data.Database;
+import data.HibernateCrudOperation;
 import model.Prospect;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -9,8 +11,14 @@ import java.util.List;
 
 public class HibernateProspectRepository implements ProspectRepository {
 
+    private CrudOperation crud = new HibernateCrudOperation();
+
     public boolean insert(Prospect prospect) {
-        return Database.save(prospect);
+        return crud.save(prospect);
+    }
+
+    public boolean update(Prospect prospect) {
+        return crud.update(prospect);
     }
 
     public List getAll() {

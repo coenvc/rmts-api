@@ -78,6 +78,10 @@ public class TestProspectRepository implements ProspectRepository {
         return false;
     }
 
+    public boolean update(Prospect prospect) {
+        return prospect != null;
+    }
+
     public List getAll() {
 
 
