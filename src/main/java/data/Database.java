@@ -6,6 +6,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 
+
 public class Database {
     public static final SessionFactory SESSION = buildSessionFactory();
 
@@ -26,6 +27,34 @@ public class Database {
         session.close();
 
         return result;
+    }
+
+    public static boolean update(Object object) {
+        Session session = Database.SESSION.openSession();
+
+        session.beginTransaction();
+
+        session.saveOrUpdate(object);
+
+        session.getTransaction().commit();
+
+        session.close();
+
+        return true;
+    }
+
+    public static boolean delete(Object object){
+        Session session = Database.SESSION.openSession();
+
+        session.beginTransaction();
+
+        session.delete(object);
+
+        session.getTransaction().commit();
+
+        session.close();
+
+        return true;
     }
 }
 
