@@ -11,7 +11,7 @@ public class Action {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
+    @OneToOne(targetEntity = ActionType.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private ActionType actionType;
 
     @Column
@@ -20,7 +20,7 @@ public class Action {
     @Column
     private String description;
 
-    @Column
+    @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
 
     @Column

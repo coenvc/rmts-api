@@ -21,6 +21,7 @@
         <mapping class="model.status.Status"/>
         <mapping class="model.Profession"/>
         <mapping class="model.ActionType"/>
+        <mapping class="model.Action"/>
 
     </session-factory>
 </hibernate-configuration>
