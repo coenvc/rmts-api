@@ -20,6 +20,7 @@
         <mapping class="model.SocialLinks"/>
         <mapping class="model.status.Status"/>
         <mapping class="model.Profession"/>
+        <mapping class="model.ActionType"/>
 
     </session-factory>
 </hibernate-configuration>

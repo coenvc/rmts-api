@@ -72,4 +72,14 @@
         <property name="repository" ref="statusRepository"/>
     </bean>
 
+    <!--ActionType wiring-->
+    <bean name="actionTypeRepository"
+          class="repository.actionType.HibernateActionTypeRepository">
+    </bean>
+
+    <bean name="actionTypeService"
+          class="service.actionType.DefaultActionTypeService">
+        <property name="repository" ref="actionTypeRepository"/>
+    </bean>
+
 </beans>
