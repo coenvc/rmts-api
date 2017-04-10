@@ -17,6 +17,10 @@ public class HibernateProspectRepository implements ProspectRepository {
         return crud.save(prospect);
     }
 
+    public boolean update(Prospect prospect) {
+        return crud.update(prospect);
+    }
+
     public List getAll() {
         Session session = Database.SESSION.openSession();
 

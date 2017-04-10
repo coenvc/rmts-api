@@ -27,6 +27,14 @@ public class ProspectController {
 
         return service.find(id);
     }
+
+    @RequestMapping(value = "/update", method = {RequestMethod.PUT})
+    public boolean update(@RequestBody Prospect prospect){
+        if (prospect == null) return false;
+
+        return service.update(prospect);
+    }
+
     @CrossOrigin("*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public boolean register(@RequestBody Prospect prospect) {
