@@ -1,6 +1,8 @@
 package repository.user;
 
+import data.CrudOperation;
 import data.Database;
+import data.HibernateCrudOperation;
 import model.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -10,6 +12,7 @@ import java.util.List;
 
 public class HibernateUserRepository implements UserRepository {
 
+    private CrudOperation crud = new HibernateCrudOperation();
 
     public User login(String username, String password) {
 
@@ -24,7 +27,7 @@ public class HibernateUserRepository implements UserRepository {
     }
 
     public boolean insert(User user) {
-        return Database.save(user);
+        return crud.save(user);
     }
 
     public List getAll() {

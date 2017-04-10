@@ -1,7 +1,9 @@
 package repository.status;
 
 
+import data.CrudOperation;
 import data.Database;
+import data.HibernateCrudOperation;
 import model.status.Status;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -9,17 +11,19 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class HibernateStatusRepository implements StatusRepository{
+    
+    private CrudOperation crud = new HibernateCrudOperation();
 
     public Boolean insert(Status status) {
-        return Database.save(status);
+        return crud.save(status);
     }
 
     public Boolean update(Status status) {
-        return Database.update(status);
+        return crud.update(status);
     }
 
     public Boolean delete(Status status) {
-        return Database.delete(status);
+        return crud.delete(status);
     }
 
     public List getAll() {
