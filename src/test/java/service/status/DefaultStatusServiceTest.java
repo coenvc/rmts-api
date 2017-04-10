@@ -48,7 +48,7 @@ public class DefaultStatusServiceTest {
     public void updateStatus_GivenObject_ReturnsTrue() throws Exception{
         Status status = new Status("Test");
         status.setId(1);
-        boolean result = service.delete(status);
+        boolean result = service.update(status);
         assertTrue(result);
     }
 
@@ -56,7 +56,7 @@ public class DefaultStatusServiceTest {
     public void updateStatus_GivenNull_ReturnsFalse() throws Exception{
         Status status = new Status("Test");
         status.setId(1);
-        boolean result2 = service.delete(null);
+        boolean result2 = service.update(null);
         assertFalse(result2);
     }
 
@@ -64,7 +64,7 @@ public class DefaultStatusServiceTest {
     public void insertStatus_GivenObject_ReturnsTrue() throws Exception{
         Status status = new Status("Test");
         status.setId(1);
-        boolean result = service.delete(status);
+        boolean result = service.insert(status);
         assertTrue(result);
     }
 
@@ -72,7 +72,7 @@ public class DefaultStatusServiceTest {
     public void insertStatus_GivenNull_ReturnsFalse() throws Exception{
         Status status = new Status("Test");
         status.setId(1);
-        boolean result2 = service.delete(null);
+        boolean result2 = service.insert(null);
         assertFalse(result2);
     }
 
