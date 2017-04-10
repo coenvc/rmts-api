@@ -1,7 +1,7 @@
 package data;
 
 public interface CrudOperation {
-    boolean save(Object object);
+    boolean create(Object object);
 
     boolean update(Object object);
 

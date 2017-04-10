@@ -27,7 +27,7 @@ public class HibernateUserRepository implements UserRepository {
     }
 
     public boolean insert(User user) {
-        return crud.save(user);
+        return crud.create(user);
     }
 
     public List getAll() {

@@ -5,7 +5,7 @@ import org.hibernate.Session;
 
 public class HibernateCrudOperation implements CrudOperation {
 
-    public boolean save(Object object) {
+    public boolean create(Object object) {
         Session session = Database.SESSION.openSession();
 
         session.beginTransaction();

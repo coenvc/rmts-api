@@ -15,7 +15,7 @@ public class HibernateStatusRepository implements StatusRepository{
     private CrudOperation crud = new HibernateCrudOperation();
 
     public boolean insert(Status status) {
-        return crud.save(status);
+        return crud.create(status);
     }
 
     public boolean update(Status status) {

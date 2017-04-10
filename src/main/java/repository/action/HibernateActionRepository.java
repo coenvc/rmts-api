@@ -16,7 +16,7 @@ public class HibernateActionRepository implements ActionRepository {
     private CrudOperation crud = new HibernateCrudOperation();
 
     public boolean insert(Action action) {
-        return crud.save(action);
+        return crud.create(action);
     }
 
     public boolean update(Action action) {

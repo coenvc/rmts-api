@@ -14,7 +14,7 @@ public class HibernateProspectRepository implements ProspectRepository {
     private CrudOperation crud = new HibernateCrudOperation();
 
     public boolean insert(Prospect prospect) {
-        return crud.save(prospect);
+        return crud.create(prospect);
     }
 
     public boolean update(Prospect prospect) {
