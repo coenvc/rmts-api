@@ -14,15 +14,15 @@ public class HibernateStatusRepository implements StatusRepository{
     
     private CrudOperation crud = new HibernateCrudOperation();
 
-    public Boolean insert(Status status) {
+    public boolean insert(Status status) {
         return crud.save(status);
     }
 
-    public Boolean update(Status status) {
+    public boolean update(Status status) {
         return crud.update(status);
     }
 
-    public Boolean delete(Status status) {
+    public boolean delete(Status status) {
         return crud.delete(status);
     }
 
