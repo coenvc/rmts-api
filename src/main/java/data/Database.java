@@ -15,46 +15,5 @@ public class Database {
         return new MetadataSources(registry).buildMetadata().buildSessionFactory();
     }
 
-    public static boolean save(Object object) {
-        Session session = Database.SESSION.openSession();
-
-        session.beginTransaction();
-
-        boolean result = session.save(object) != null;
-
-        session.getTransaction().commit();
-
-        session.close();
-
-        return result;
-    }
-
-    public static boolean update(Object object) {
-        Session session = Database.SESSION.openSession();
-
-        session.beginTransaction();
-
-        session.saveOrUpdate(object);
-
-        session.getTransaction().commit();
-
-        session.close();
-
-        return true;
-    }
-
-    public static boolean delete(Object object){
-        Session session = Database.SESSION.openSession();
-
-        session.beginTransaction();
-
-        session.delete(object);
-
-        session.getTransaction().commit();
-
-        session.close();
-
-        return true;
-    }
 }
 
