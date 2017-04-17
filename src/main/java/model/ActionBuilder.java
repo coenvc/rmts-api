@@ -11,6 +11,7 @@ public class ActionBuilder {
     private DateTime date;
     private String description;
     private User user;
+    private Prospect prospect;
     private boolean isCompleted = false;
 
     public ActionBuilder id(int id){
@@ -38,6 +39,11 @@ public class ActionBuilder {
         return this;
     }
 
+    public ActionBuilder prospect(Prospect prospect){
+        this.prospect = prospect;
+        return this;
+    }
+
     public ActionBuilder isComplete(boolean isCompleted){
         this.isCompleted = isCompleted;
         return this;
@@ -45,7 +51,7 @@ public class ActionBuilder {
 
     public Action build(){
         checkProperties();
-        return new Action(actionType, date, description, user, isCompleted);
+        return new Action(actionType, date, description, user, prospect, isCompleted);
     }
 
     //region Helper methods
@@ -54,6 +60,7 @@ public class ActionBuilder {
         if (date == null) throw new IllegalArgumentException("No date specified.");
         if (description == null) throw new IllegalArgumentException("No description specified.");
         if (user == null) throw new IllegalArgumentException("No user specified.");
+        if (prospect == null) throw new IllegalArgumentException("No prospect specified.");
     }
     //endregion
 

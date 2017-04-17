@@ -60,8 +60,19 @@ public class HibernateActionRepository implements ActionRepository {
         return sortedActions;
     }
 
+    @SuppressWarnings("JpaQlInspection")
     public SortedActions getAllByProspect(Prospect prospect) {
-        return null;
+        Session session = Database.SESSION.openSession();
+
+        Query query = session.createQuery("FROM Action WHERE prospect_id = :prospect").setParameter("prospect", prospect.getid());
+
+        List result = query.getResultList();
+
+        SortedActions sortedActions = filterList(result);
+
+        session.close();
+
+        return sortedActions;
     }
 
     public Action find(int id) {

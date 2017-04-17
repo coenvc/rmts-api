@@ -1,12 +1,9 @@
 package model;
 
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Action {
@@ -28,6 +25,10 @@ public class Action {
     @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
 
+
+    @OneToOne(targetEntity = Prospect.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Prospect prospect;
+
     @Column
     private boolean isCompleted;
 
@@ -35,11 +36,12 @@ public class Action {
 
     }
 
-    public Action(ActionType actionType, DateTime date, String description, User user, boolean isCompleted) {
+    public Action(ActionType actionType, DateTime date, String description, User user,Prospect prospect, boolean isCompleted) {
         this.actionType = actionType;
         this.date = date;
         this.description = description;
         this.user = user;
+        this.prospect = prospect;
         this.isCompleted = isCompleted;
     }
 
@@ -91,6 +93,14 @@ public class Action {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    public Prospect getProspect() {
+        return prospect;
+    }
+
+    public void setProspect(Prospect prospect) {
+        this.prospect = prospect;
     }
 
     //endregion
