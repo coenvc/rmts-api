@@ -92,6 +92,7 @@
           <element id="library" level="project" name="Gradle: io.springfox:springfox-spring-web:2.6.1" />
           <element id="library" level="project" name="Gradle: org.javassist:javassist:3.20.0-GA" />
           <element id="library" level="project" name="Gradle: io.springfox:springfox-core:2.6.1" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.9/f7b520c458572890807d143670c9b24f4de90897/joda-time-2.9.9.jar" />
         </element>
       </element>
     </root>
