@@ -2,6 +2,7 @@ package service.action;
 
 
 import model.Action;
+import model.SortedActions;
 import model.User;
 import repository.action.ActionRepository;
 
@@ -23,7 +24,7 @@ public class DefaultActionService implements ActionService {
         return repository.delete(action);
     }
 
-    public List getAllByUser(User user) {
+    public SortedActions getAllByUser(User user) {
         return repository.getAllByUser(user);
     }
 

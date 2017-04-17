@@ -1,6 +1,8 @@
 package model;
 
 
+import org.joda.time.DateTime;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,7 +17,7 @@ public class Action {
     private ActionType actionType;
 
     @Column
-    private Date date;
+    private DateTime date;
 
     @Column
     private String description;
@@ -30,7 +32,7 @@ public class Action {
 
     }
 
-    public Action(ActionType actionType, Date date, String description, User user, boolean isCompleted) {
+    public Action(ActionType actionType, DateTime date, String description, User user, boolean isCompleted) {
         this.actionType = actionType;
         this.date = date;
         this.description = description;
@@ -56,11 +58,11 @@ public class Action {
         this.actionType = actionType;
     }
 
-    public Date getDate() {
+    public DateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(DateTime date) {
         this.date = date;
     }
 

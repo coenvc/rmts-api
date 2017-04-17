@@ -1,6 +1,7 @@
 package controller;
 
 import model.Action;
+import model.SortedActions;
 import model.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,7 +19,7 @@ public class ActionController {
     private ActionService service = appContext.getBean("actionService", ActionService.class);
 
     @RequestMapping(value = "/all", method = {RequestMethod.POST})
-    public List getAll(@RequestBody User user) {
+    public SortedActions getAll(@RequestBody User user) {
 
         return service.getAllByUser(user);
     }

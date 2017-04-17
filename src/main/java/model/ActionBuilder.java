@@ -1,12 +1,14 @@
 package model;
 
+import org.joda.time.DateTime;
+
 import java.util.Date;
 
 public class ActionBuilder {
 
     private int id;
     private ActionType actionType;
-    private Date date;
+    private DateTime date;
     private String description;
     private User user;
     private boolean isCompleted = false;
@@ -21,7 +23,7 @@ public class ActionBuilder {
         return this;
     }
 
-    public ActionBuilder date(Date date){
+    public ActionBuilder date(DateTime date){
         this.date = date;
         return this;
     }
