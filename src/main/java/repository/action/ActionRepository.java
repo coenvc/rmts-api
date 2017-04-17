@@ -5,7 +5,6 @@ import model.Prospect;
 import model.SortedActions;
 import model.User;
 
-import java.util.List;
 
 public interface ActionRepository {
 

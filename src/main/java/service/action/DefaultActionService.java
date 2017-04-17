@@ -2,6 +2,7 @@ package service.action;
 
 
 import model.Action;
+import model.Prospect;
 import model.SortedActions;
 import model.User;
 import repository.action.ActionRepository;
@@ -24,8 +25,16 @@ public class DefaultActionService implements ActionService {
         return repository.delete(action);
     }
 
+    public SortedActions getAll() {
+        return repository.getAll();
+    }
+
     public SortedActions getAllByUser(User user) {
         return repository.getAllByUser(user);
+    }
+
+    public SortedActions getAllByProspect(Prospect prospect) {
+        return repository.getAllByProspect(prospect);
     }
 
     public Action find(int id) {

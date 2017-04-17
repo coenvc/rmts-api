@@ -1,6 +1,8 @@
 package model;
 
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -17,6 +19,7 @@ public class Action {
     private ActionType actionType;
 
     @Column
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime date;
 
     @Column
