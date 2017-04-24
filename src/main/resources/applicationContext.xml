@@ -94,11 +94,11 @@
 
     <!--ApiCrud wiring-->
     <bean name="hibernateCrudOperation"
-          class="data.HibernateCrudOperation">
+          class="data.crud.HibernateCrudOperation">
     </bean>
 
     <bean name="crudService"
-          class="data.CrudService">
+          class="data.crud.CrudService">
         <constructor-arg name="crudOperation" ref="hibernateCrudOperation"/>
     </bean>
 
