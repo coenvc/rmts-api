@@ -19,19 +19,6 @@ public class TestStatusRepository implements StatusRepository {
         return list;
     }
 
-
-    public boolean insert(Status status) {
-        return status != null;
-    }
-
-    public boolean update(Status status) {
-        return status != null;
-    }
-
-    public boolean delete(Status status) {
-        return status != null;
-    }
-
     public List getAll() {
 
         return statusList();

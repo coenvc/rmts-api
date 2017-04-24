@@ -13,10 +13,6 @@ public class DefaultUserService implements UserService {
         return repository.login(username, password);
     }
 
-    public boolean insert(User user) {
-        return repository.insert(user);
-    }
-
     public List getAll() {
         return repository.getAll();
     }

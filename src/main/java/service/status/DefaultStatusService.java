@@ -11,18 +11,6 @@ public class DefaultStatusService implements StatusService {
 
     private StatusRepository repository;
 
-    public Boolean insert(Status status) {
-        return repository.insert(status);
-    }
-
-    public Boolean update(Status status) {
-        return repository.update(status);
-    }
-
-    public Boolean delete(Status status) {
-        return repository.delete(status);
-    }
-
     public List getAll() {
         return repository.getAll();
     }

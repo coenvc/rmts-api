@@ -9,18 +9,6 @@ public class DefaultActionTypeService implements ActionTypeService{
 
     private ActionTypeRepository repository;
 
-    public boolean insert(ActionType actionType) {
-        return repository.insert(actionType);
-    }
-
-    public boolean update(ActionType actionType) {
-        return repository.update(actionType);
-    }
-
-    public boolean delete(ActionType actionType) {
-        return repository.delete(actionType);
-    }
-
     public List getAll() {
         return repository.getAll();
     }

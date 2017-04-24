@@ -1,8 +1,10 @@
 package controller;
 
+import data.CrudService;
 import model.status.Status;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.status.StatusService;
 
@@ -15,6 +17,7 @@ public class StatusController {
 
     private ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     private StatusService service = appContext.getBean("statusService", StatusService.class);
+    private CrudService crudService = appContext.getBean("crudService", CrudService.class);
 
     @RequestMapping(value = "/all", method = {RequestMethod.GET})
     public List getAll() {
@@ -29,26 +32,19 @@ public class StatusController {
     }
 
     @RequestMapping(value = "/insert", method = {RequestMethod.POST})
-    public boolean insert(@RequestBody Status status){
-        if(status == null) return false;
-
-        return service.insert(status);
+    public ResponseEntity<String> insert(@RequestBody Status status) {
+        return crudService.insert(status);
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.PUT})
-    public boolean update(@RequestBody Status status){
-        if (status == null) return false;
-
-        return service.update(status);
+    public ResponseEntity<String> update(@RequestBody Status status) {
+        return crudService.update(status);
     }
 
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE})
-    public boolean delete(@RequestBody(required = false) Status status){
-        if(status == null) return false;
-
-        return service.delete(status);
+    public ResponseEntity<String> delete(@RequestBody(required = false) Status status) {
+        return crudService.delete(status);
     }
-
 
 
 }

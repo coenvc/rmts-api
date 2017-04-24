@@ -41,10 +41,6 @@ public class TestUserRepository implements UserRepository{
         return null;
     }
 
-    public boolean insert(User user) {
-        return user != null;
-    }
-
     public List getAll() {
         List<User> users = new ArrayList<User>();
 

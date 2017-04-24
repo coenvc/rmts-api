@@ -9,14 +9,6 @@ public class DefaultProspectService implements ProspectService {
 
     private ProspectRepository repository;
 
-    public boolean insert(Prospect prospect) {
-        return repository.insert(prospect);
-    }
-
-    public boolean update(Prospect prospect) {
-        return repository.update(prospect);
-    }
-
     public List getAll() {
         return repository.getAll();
     }

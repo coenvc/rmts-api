@@ -12,7 +12,6 @@ import java.util.List;
 
 public class HibernateUserRepository implements UserRepository {
 
-    private CrudOperation crud = new HibernateCrudOperation();
 
     public User login(String username, String password) {
 
@@ -26,9 +25,6 @@ public class HibernateUserRepository implements UserRepository {
         return user;
     }
 
-    public boolean insert(User user) {
-        return crud.create(user);
-    }
 
     public List getAll() {
         Session session = Database.SESSION.openSession();

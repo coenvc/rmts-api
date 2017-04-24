@@ -1,8 +1,10 @@
 package controller;
 
+import data.CrudService;
 import model.user.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.user.UserService;
 
@@ -16,6 +18,7 @@ public class UserController {
 
     private ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     private UserService service = appContext.getBean("userService", UserService.class);
+    private CrudService crudService = appContext.getBean("crudService", CrudService.class);
 
     @RequestMapping(value = "/all", method = {RequestMethod.GET})
     public List all() {
@@ -34,7 +37,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = {RequestMethod.POST})
-    public boolean register(@RequestBody User user) {
-        return service.insert(user);
+    public ResponseEntity<String> register(@RequestBody User user) {
+        return crudService.insert(user);
     }
 }
