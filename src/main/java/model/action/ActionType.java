@@ -1,9 +1,11 @@
 package model.action;
 
+import model.Crudable;
+
 import javax.persistence.*;
 
 @Entity
-public class ActionType {
+public class ActionType implements Crudable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,6 +16,10 @@ public class ActionType {
 
     public ActionType(){
 
+    }
+
+    public boolean isIncomplete() {
+        return content == null;
     }
 
     public ActionType(String content){
@@ -36,5 +42,6 @@ public class ActionType {
     public void setContent(String content) {
         this.content = content;
     }
+
     //endregion
 }

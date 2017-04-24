@@ -1,9 +1,11 @@
 package model.profession;
 
+import model.Crudable;
+
 import javax.persistence.*;
 
 @Entity
-public class Profession {
+public class Profession implements Crudable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +22,10 @@ public class Profession {
 
     }
 
+    public boolean isIncomplete() {
+        return name == null;
+    }
+
     //region Getters & Setters
 
     public int getId() {
@@ -33,6 +39,8 @@ public class Profession {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     //endregion
 }

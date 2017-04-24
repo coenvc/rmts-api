@@ -1,6 +1,7 @@
 package model.action;
 
 
+import model.Crudable;
 import model.prospect.Prospect;
 import model.user.User;
 
@@ -9,7 +10,7 @@ import java.util.Date;
 
 
 @Entity
-public class Action {
+public class Action implements Crudable {
 
     // Complex types
     @Id
@@ -45,6 +46,14 @@ public class Action {
         this.user = user;
         this.prospect = prospect;
         this.isCompleted = isCompleted;
+    }
+
+
+    public boolean isIncomplete() {
+        return actionType == null ||
+                date == null ||
+                user == null ||
+                prospect == null;
     }
 
     //region Setters & Getters
@@ -104,6 +113,5 @@ public class Action {
     public void setProspect(Prospect prospect) {
         this.prospect = prospect;
     }
-
     //endregion
 }

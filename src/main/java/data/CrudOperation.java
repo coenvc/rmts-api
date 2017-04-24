@@ -1,9 +1,11 @@
 package data;
 
+import model.Crudable;
+
 public interface CrudOperation {
-    boolean create(Object object);
+    boolean create(Crudable object);
 
-    boolean update(Object object);
+    boolean update(Crudable object);
 
-    boolean delete(Object object);
+    boolean delete(Crudable object);
 }

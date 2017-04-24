@@ -1,15 +1,15 @@
 package controller;
 
-import model.Action;
-import model.Prospect;
-import model.SortedActions;
-import model.User;
+import data.CrudService;
+import model.action.Action;
+import model.prospect.Prospect;
+import model.action.SortedActions;
+import model.user.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.action.ActionService;
-
-import java.util.List;
 
 @RestController()
 @RequestMapping("/action")
@@ -18,6 +18,7 @@ public class ActionController {
 
     private ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     private ActionService service = appContext.getBean("actionService", ActionService.class);
+    private CrudService crudService = appContext.getBean("crudService", CrudService.class);
 
     @RequestMapping(value = "/all", method = {RequestMethod.GET})
     public SortedActions getAll() {
@@ -47,23 +48,17 @@ public class ActionController {
     }
 
     @RequestMapping(value = "/insert", method = {RequestMethod.POST})
-    public boolean insert(@RequestBody Action action){
-        if(action == null) return false;
-
-        return service.insert(action);
+    public ResponseEntity<String> insert(@RequestBody Action action) {
+        return crudService.insert(action);
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.PUT})
-    public boolean update(@RequestBody Action action){
-        if (action == null) return false;
-
-        return service.update(action);
+    public ResponseEntity<String> update(@RequestBody Action action) {
+        return crudService.update(action);
     }
 
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE})
-    public boolean delete(@RequestBody(required = false) Action action){
-        if(action == null) return false;
-
-        return service.delete(action);
+    public ResponseEntity<String> delete(@RequestBody(required = false) Action action) {
+        return crudService.delete(action);
     }
 }

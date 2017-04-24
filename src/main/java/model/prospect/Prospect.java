@@ -1,5 +1,6 @@
 package model.prospect;
 
+import model.Crudable;
 import model.socialLinks.SocialLinks;
 import model.address.Address;
 import model.profession.Profession;
@@ -8,7 +9,7 @@ import model.status.Status;
 import javax.persistence.*;
 
 @Entity
-public class Prospect {
+public class Prospect implements Crudable {
 
     // Complex types
     @Id
@@ -56,6 +57,16 @@ public class Prospect {
         this.description = description;
         this.socialLinks = socialLinks;
         this.status = status;
+    }
+
+
+    public boolean isIncomplete() {
+        return emailAddress == null ||
+                firstName == null ||
+                phoneNumber == null ||
+                surname == null ||
+                profession == null ||
+                status == null;
     }
 
     //region Getters & Setters
@@ -159,5 +170,6 @@ public class Prospect {
     public String getFullName() {
         return firstName + " " + infix + " " + surname;
     }
+
     //endregion
 }

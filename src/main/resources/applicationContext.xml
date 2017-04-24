@@ -92,4 +92,14 @@
         <property name="repository" ref="actionRepository"/>
     </bean>
 
+    <!--ApiCrud wiring-->
+    <bean name="hibernateCrudOperation"
+          class="data.HibernateCrudOperation">
+    </bean>
+
+    <bean name="crudService"
+          class="data.CrudService">
+        <constructor-arg name="crudOperation" ref="hibernateCrudOperation"/>
+    </bean>
+
 </beans>

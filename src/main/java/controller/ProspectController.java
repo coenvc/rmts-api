@@ -1,14 +1,12 @@
 package controller;
 
-import com.google.gson.Gson;
+import data.CrudService;
 import model.prospect.Prospect;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.prospect.ProspectService;
-import springfox.documentation.spring.web.json.Json;
 
 import java.util.List;
 
@@ -19,6 +17,7 @@ public class ProspectController {
 
     private ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     private ProspectService service = appContext.getBean("prospectService", ProspectService.class);
+    private CrudService crudService = appContext.getBean("crudService", CrudService.class);
 
     @RequestMapping(value = "/all", method = {RequestMethod.GET})
     public List getAll() {
@@ -33,21 +32,13 @@ public class ProspectController {
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.PUT})
-    public boolean update(@RequestBody Prospect prospect){
-        if (prospect == null) return false;
-
-        return service.update(prospect);
+    public ResponseEntity<String> update(@RequestBody Prospect prospect) {
+        return crudService.update(prospect);
     }
 
     @CrossOrigin("*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<String> register(@RequestBody Prospect prospect) {
-        try {
-            service.insert(prospect);
-            return new ResponseEntity<String>("true", HttpStatus.OK);
-        } catch (Exception e) {
-            Gson gson = new Gson();
-            return new ResponseEntity<String>(gson.toJson(e), HttpStatus.BAD_REQUEST);
-        }
+        return crudService.insert(prospect);
     }
 }

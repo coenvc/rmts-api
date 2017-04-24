@@ -1,8 +1,10 @@
 package controller;
 
+import data.CrudService;
 import model.action.ActionType;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.actionType.ActionTypeService;
 
@@ -15,6 +17,7 @@ public class ActionTypeController {
 
     private ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     private ActionTypeService service = appContext.getBean("actionTypeService", ActionTypeService.class);
+    private CrudService crudService = appContext.getBean("crudService", CrudService.class);
 
     @RequestMapping(value = "/all", method = {RequestMethod.GET})
     public List getAll() {
@@ -29,23 +32,17 @@ public class ActionTypeController {
     }
 
     @RequestMapping(value = "/insert", method = {RequestMethod.POST})
-    public boolean insert(@RequestBody ActionType actionType){
-        if(actionType == null) return false;
-
-        return service.insert(actionType);
+    public ResponseEntity<String> insert(@RequestBody ActionType actionType) {
+        return crudService.insert(actionType);
     }
 
     @RequestMapping(value = "/update", method = {RequestMethod.PUT})
-    public boolean update(@RequestBody ActionType actionType){
-        if (actionType == null) return false;
-
-        return service.update(actionType);
+    public ResponseEntity<String> update(@RequestBody ActionType actionType) {
+        return crudService.update(actionType);
     }
 
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE})
-    public boolean delete(@RequestBody(required = false) ActionType actionType){
-        if(actionType == null) return false;
-
-        return service.delete(actionType);
+    public ResponseEntity<String> delete(@RequestBody(required = false) ActionType actionType) {
+        return crudService.delete(actionType);
     }
 }

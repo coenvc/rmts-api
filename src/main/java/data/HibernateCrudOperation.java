@@ -1,16 +1,17 @@
 package data;
 
 
+import model.Crudable;
 import org.hibernate.Session;
 
 public class HibernateCrudOperation implements CrudOperation {
 
-    public boolean create(Object object) {
+    public boolean create(Crudable crudable) {
         Session session = Database.SESSION.openSession();
 
         session.beginTransaction();
 
-        boolean result = session.save(object) != null;
+        boolean result = session.save(crudable) != null;
 
         session.getTransaction().commit();
 
@@ -19,12 +20,12 @@ public class HibernateCrudOperation implements CrudOperation {
         return result;
     }
 
-    public boolean update(Object object) {
+    public boolean update(Crudable crudable) {
         Session session = Database.SESSION.openSession();
 
         session.beginTransaction();
 
-        session.saveOrUpdate(object);
+        session.saveOrUpdate(crudable);
 
         session.getTransaction().commit();
 
@@ -33,12 +34,12 @@ public class HibernateCrudOperation implements CrudOperation {
         return true;
     }
 
-    public boolean delete(Object object){
+    public boolean delete(Crudable crudable){
         Session session = Database.SESSION.openSession();
 
         session.beginTransaction();
 
-        session.delete(object);
+        session.delete(crudable);
 
         session.getTransaction().commit();
 

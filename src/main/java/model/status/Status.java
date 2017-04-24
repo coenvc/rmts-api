@@ -1,9 +1,11 @@
 package model.status;
 
+import model.Crudable;
+
 import javax.persistence.*;
 
 @Entity
-public class Status {
+public class Status implements Crudable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +20,10 @@ public class Status {
 
     public Status(String content) {
         this.content = content;
+    }
+
+    public boolean isIncomplete() {
+        return content == null;
     }
 
     //region Setters & Getters
@@ -36,5 +42,7 @@ public class Status {
     public void setContent(String content) {
         this.content = content;
     }
+
+
     //endregion
 }

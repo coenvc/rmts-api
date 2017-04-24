@@ -1,17 +1,19 @@
 package model.user;
 
+import model.Crudable;
+
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class User implements Crudable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(unique = true)
-
     private String username;
+
     private String password;
     private String name;
     private boolean active;
@@ -25,6 +27,12 @@ public class User {
         this.password = password;
         this.name = name;
         this.active = active;
+    }
+
+    public boolean isIncomplete() {
+        return username == null ||
+                password == null ||
+                name == null;
     }
 
     //region Getters & Setters
