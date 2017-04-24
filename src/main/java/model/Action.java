@@ -1,9 +1,9 @@
 package model;
 
 
-import org.hibernate.annotations.Type;
-import org.joda.time.DateTime;
 import javax.persistence.*;
+import java.util.Date;
+
 
 @Entity
 public class Action {
@@ -16,8 +16,7 @@ public class Action {
     private ActionType actionType;
 
     @Column
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    private DateTime date;
+    private Date date;
 
     @Column
     private String description;
@@ -36,7 +35,7 @@ public class Action {
 
     }
 
-    public Action(ActionType actionType, DateTime date, String description, User user,Prospect prospect, boolean isCompleted) {
+    public Action(ActionType actionType, Date date, String description, User user,Prospect prospect, boolean isCompleted) {
         this.actionType = actionType;
         this.date = date;
         this.description = description;
@@ -63,11 +62,11 @@ public class Action {
         this.actionType = actionType;
     }
 
-    public DateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(DateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

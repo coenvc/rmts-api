@@ -8,7 +8,8 @@ public class ActionBuilder {
 
     private int id;
     private ActionType actionType;
-    private DateTime date;
+
+    private Date date;
     private String description;
     private User user;
     private Prospect prospect;
@@ -24,7 +25,7 @@ public class ActionBuilder {
         return this;
     }
 
-    public ActionBuilder date(DateTime date){
+    public ActionBuilder date(Date date){
         this.date = date;
         return this;
     }
