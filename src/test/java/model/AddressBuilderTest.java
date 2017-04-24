@@ -1,7 +1,7 @@
 package model;
 
-import model.Address;
-import model.AddressBuilder;
+import model.address.Address;
+import model.address.AddressBuilder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

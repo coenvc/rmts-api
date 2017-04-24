@@ -1,6 +1,6 @@
 package service.prospect;
 
-import model.Prospect;
+import model.prospect.Prospect;
 import repository.prospect.ProspectRepository;
 
 import java.util.List;

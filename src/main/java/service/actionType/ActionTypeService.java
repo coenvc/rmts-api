@@ -1,6 +1,6 @@
 package service.actionType;
 
-import model.ActionType;
+import model.action.ActionType;
 
 import java.util.List;
 

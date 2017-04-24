@@ -1,13 +1,11 @@
 package service.action;
 
 
-import model.Action;
-import model.Prospect;
-import model.SortedActions;
-import model.User;
+import model.action.Action;
+import model.prospect.Prospect;
+import model.action.SortedActions;
+import model.user.User;
 import repository.action.ActionRepository;
-
-import java.util.List;
 
 public class DefaultActionService implements ActionService {
 

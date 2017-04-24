@@ -14,14 +14,14 @@
         <property name="show_sql">true</property>
 
         <!--Mappings-->
-        <mapping class="model.Prospect"/>
-        <mapping class="model.User"/>
-        <mapping class="model.Address"/>
-        <mapping class="model.SocialLinks"/>
+        <mapping class="model.prospect.Prospect"/>
+        <mapping class="model.user.User"/>
+        <mapping class="model.address.Address"/>
+        <mapping class="model.socialLinks.SocialLinks"/>
         <mapping class="model.status.Status"/>
-        <mapping class="model.Profession"/>
-        <mapping class="model.ActionType"/>
-        <mapping class="model.Action"/>
+        <mapping class="model.profession.Profession"/>
+        <mapping class="model.action.ActionType"/>
+        <mapping class="model.action.Action"/>
 
     </session-factory>
 </hibernate-configuration>

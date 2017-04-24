@@ -1,4 +1,4 @@
-package model;
+package model.action;
 
 import org.joda.time.DateTime;
 

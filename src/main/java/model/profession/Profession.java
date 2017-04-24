@@ -1,4 +1,4 @@
-package model;
+package model.profession;
 
 import javax.persistence.*;
 

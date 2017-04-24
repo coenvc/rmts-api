@@ -1,12 +1,10 @@
 package service.action;
 
 
-import model.Action;
-import model.Prospect;
-import model.SortedActions;
-import model.User;
-
-import java.util.List;
+import model.action.Action;
+import model.prospect.Prospect;
+import model.action.SortedActions;
+import model.user.User;
 
 public interface ActionService {
 

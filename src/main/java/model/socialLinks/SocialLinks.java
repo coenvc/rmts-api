@@ -1,4 +1,4 @@
-package model;
+package model.socialLinks;
 
 import javax.persistence.*;
 
@@ -8,13 +8,8 @@ public class SocialLinks {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
     private String facebook;
-
-    @Column
     private String linkedIn;
-
-    @Column
     private String twitter;
 
     public SocialLinks() {

@@ -1,18 +1,26 @@
 package model;
 
+import model.action.Action;
+import model.action.ActionBuilder;
+import model.action.ActionType;
+import model.action.SortedActions;
+import model.address.AddressBuilder;
+import model.profession.ProfessionBuilder;
+import model.prospect.Prospect;
+import model.prospect.ProspectBuilder;
+import model.socialLinks.SocialLinksBuilder;
 import model.status.StatusCode;
 import model.status.StatusFactory;
+import model.user.User;
+import model.user.UserBuilder;
 import org.junit.Test;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import static org.junit.Assert.*;
 
 public class SortedActionsTest {
 

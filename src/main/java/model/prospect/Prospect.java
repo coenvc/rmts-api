@@ -1,51 +1,44 @@
-package model;
+package model.prospect;
 
+import model.socialLinks.SocialLinks;
+import model.address.Address;
+import model.profession.Profession;
 import model.status.Status;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Prospect {
 
+    // Complex types
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
-    private String firstName;
-
-    @Column
-    private String infix;
-
-    @Column
-    private String surname;
-
-    private String fullName;
-
     @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
 
-    @OneToOne(targetEntity = Profession.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private Profession profession;
 
-    @Column
-    private String phoneNumber;
-
-    @Column
-    private String emailAddress;
-
-    @Column
-    private String imageUrl;
-
-    @Column
-    private String description;
-
-    @OneToOne(targetEntity = SocialLinks.class, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private SocialLinks socialLinks;
 
-    @ManyToOne(targetEntity = Status.class, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private Status status;
+
+    // Basic types
+    private String firstName;
+    private String infix;
+    private String surname;
+    private String fullName;
+    private String phoneNumber;
+    private String emailAddress;
+    private String imageUrl;
+    private String description;
 
     public Prospect() {
 

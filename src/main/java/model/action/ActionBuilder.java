@@ -1,6 +1,7 @@
-package model;
+package model.action;
 
-import org.joda.time.DateTime;
+import model.prospect.Prospect;
+import model.user.User;
 
 import java.util.Date;
 

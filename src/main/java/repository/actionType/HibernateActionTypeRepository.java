@@ -3,7 +3,7 @@ package repository.actionType;
 import data.CrudOperation;
 import data.Database;
 import data.HibernateCrudOperation;
-import model.ActionType;
+import model.action.ActionType;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 

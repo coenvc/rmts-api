@@ -1,6 +1,8 @@
 package model;
 
 
+import model.profession.Profession;
+import model.profession.ProfessionBuilder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

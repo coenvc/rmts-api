@@ -1,6 +1,6 @@
 package controller;
 
-import model.ActionType;
+import model.action.ActionType;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.*;

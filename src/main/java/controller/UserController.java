@@ -1,6 +1,6 @@
 package controller;
 
-import model.User;
+import model.user.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.*;

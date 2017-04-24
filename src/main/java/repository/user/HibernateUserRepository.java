@@ -3,7 +3,7 @@ package repository.user;
 import data.CrudOperation;
 import data.Database;
 import data.HibernateCrudOperation;
-import model.User;
+import model.user.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 

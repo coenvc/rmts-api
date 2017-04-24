@@ -1,4 +1,4 @@
-package model;
+package model.address;
 
 import javax.persistence.*;
 
@@ -9,16 +9,9 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
     private String street;
-
-    @Column
     private String houseNumber;
-
-    @Column
     private String city;
-
-    @Column
     private  String zipcode;
 
     public Address(String street, String houseNumber, String city, String zipcode) {

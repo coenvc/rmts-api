@@ -1,6 +1,7 @@
 package model;
 
-import org.junit.*;
+import model.socialLinks.SocialLinks;
+import model.socialLinks.SocialLinksBuilder;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

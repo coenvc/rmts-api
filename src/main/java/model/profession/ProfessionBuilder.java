@@ -1,4 +1,4 @@
-package model;
+package model.profession;
 
 public class ProfessionBuilder {
 

@@ -1,6 +1,10 @@
 package repository.prospect;
 
-import model.*;
+import model.address.AddressBuilder;
+import model.profession.ProfessionBuilder;
+import model.prospect.Prospect;
+import model.prospect.ProspectBuilder;
+import model.socialLinks.SocialLinksBuilder;
 import model.status.StatusCode;
 import model.status.StatusFactory;
 

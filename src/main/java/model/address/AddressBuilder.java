@@ -1,4 +1,4 @@
-package model;
+package model.address;
 
 public class AddressBuilder {
 

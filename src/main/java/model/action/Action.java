@@ -1,5 +1,8 @@
-package model;
+package model.action;
 
+
+import model.prospect.Prospect;
+import model.user.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +11,7 @@ import java.util.Date;
 @Entity
 public class Action {
 
+    // Complex types
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -15,20 +19,19 @@ public class Action {
     @OneToOne(targetEntity = ActionType.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private ActionType actionType;
 
-    @Column
+    @Temporal(value = TemporalType.DATE)
     private Date date;
 
-    @Column
-    private String description;
-
-    @OneToOne(targetEntity = User.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private User user;
 
-
-    @OneToOne(targetEntity = Prospect.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private Prospect prospect;
 
-    @Column
+    // Basic types
+    private String description;
     private boolean isCompleted;
 
     public Action(){

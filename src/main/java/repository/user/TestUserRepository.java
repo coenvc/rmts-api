@@ -1,8 +1,8 @@
 package repository.user;
 
 
-import model.User;
-import model.UserBuilder;
+import model.user.User;
+import model.user.UserBuilder;
 
 import java.util.ArrayList;
 import java.util.List;

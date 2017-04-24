@@ -3,7 +3,7 @@ package repository.prospect;
 import data.CrudOperation;
 import data.Database;
 import data.HibernateCrudOperation;
-import model.Prospect;
+import model.prospect.Prospect;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 

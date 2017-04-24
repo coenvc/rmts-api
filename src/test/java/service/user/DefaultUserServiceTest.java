@@ -1,10 +1,9 @@
 package service.user;
 
-import model.User;
+import model.user.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import repository.user.UserRepository;
 
 import java.util.List;
 

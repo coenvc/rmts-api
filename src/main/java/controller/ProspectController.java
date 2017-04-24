@@ -1,10 +1,14 @@
 package controller;
 
-import model.Prospect;
+import com.google.gson.Gson;
+import model.prospect.Prospect;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.prospect.ProspectService;
+import springfox.documentation.spring.web.json.Json;
 
 import java.util.List;
 
@@ -37,7 +41,13 @@ public class ProspectController {
 
     @CrossOrigin("*")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public boolean register(@RequestBody Prospect prospect) {
-        return service.insert(prospect);
+    public ResponseEntity<String> register(@RequestBody Prospect prospect) {
+        try {
+            service.insert(prospect);
+            return new ResponseEntity<String>("true", HttpStatus.OK);
+        } catch (Exception e) {
+            Gson gson = new Gson();
+            return new ResponseEntity<String>(gson.toJson(e), HttpStatus.BAD_REQUEST);
+        }
     }
 }

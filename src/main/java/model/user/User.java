@@ -1,4 +1,4 @@
-package model;
+package model.user;
 
 import javax.persistence.*;
 
@@ -10,15 +10,10 @@ public class User {
     private int id;
 
     @Column(unique = true)
+
     private String username;
-
-    @Column
     private String password;
-
-    @Column
     private String name;
-
-    @Column
     private boolean active;
 
     public User() {

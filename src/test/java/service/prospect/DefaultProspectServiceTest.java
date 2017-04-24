@@ -1,15 +1,16 @@
 package service.prospect;
 
-import model.*;
+import model.address.AddressBuilder;
+import model.profession.ProfessionBuilder;
+import model.prospect.Prospect;
+import model.prospect.ProspectBuilder;
+import model.socialLinks.SocialLinksBuilder;
 import model.status.StatusCode;
 import model.status.StatusFactory;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import repository.prospect.ProspectRepository;
-import service.user.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;

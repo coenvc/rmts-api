@@ -1,5 +1,8 @@
-package model;
+package model.prospect;
 
+import model.socialLinks.SocialLinks;
+import model.address.Address;
+import model.profession.Profession;
 import model.status.Status;
 
 public class ProspectBuilder {

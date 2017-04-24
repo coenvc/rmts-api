@@ -1,5 +1,7 @@
 package model;
 
+import model.user.User;
+import model.user.UserBuilder;
 import org.junit.*;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

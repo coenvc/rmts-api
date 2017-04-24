@@ -1,6 +1,14 @@
 package model;
 
 
+import model.address.Address;
+import model.address.AddressBuilder;
+import model.profession.Profession;
+import model.profession.ProfessionBuilder;
+import model.prospect.Prospect;
+import model.prospect.ProspectBuilder;
+import model.socialLinks.SocialLinks;
+import model.socialLinks.SocialLinksBuilder;
 import model.status.Status;
 import model.status.StatusCode;
 import model.status.StatusFactory;

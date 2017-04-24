@@ -4,15 +4,13 @@ package repository.action;
 import data.CrudOperation;
 import data.Database;
 import data.HibernateCrudOperation;
-import model.Action;
-import model.Prospect;
-import model.SortedActions;
-import model.User;
+import model.action.Action;
+import model.prospect.Prospect;
+import model.action.SortedActions;
+import model.user.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import org.joda.time.DateTime;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HibernateActionRepository implements ActionRepository {

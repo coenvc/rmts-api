@@ -1,4 +1,4 @@
-package model;
+package model.socialLinks;
 
 public class SocialLinksBuilder {
 
