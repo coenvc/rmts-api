@@ -38,7 +38,7 @@ public class HibernateActionRepository implements ActionRepository {
 
         List result = query.getResultList();
 
-        SortedActions sortedActions = filterList(result);
+        SortedActions sortedActions = SortedActions.filterList(result);
 
         session.close();
 
@@ -53,7 +53,7 @@ public class HibernateActionRepository implements ActionRepository {
 
         List result = query.getResultList();
 
-        SortedActions sortedActions = filterList(result);
+        SortedActions sortedActions = SortedActions.filterList(result);
 
         session.close();
 
@@ -68,7 +68,7 @@ public class HibernateActionRepository implements ActionRepository {
 
         List result = query.getResultList();
 
-        SortedActions sortedActions = filterList(result);
+        SortedActions sortedActions = SortedActions.filterList(result);
 
         session.close();
 
@@ -86,37 +86,6 @@ public class HibernateActionRepository implements ActionRepository {
     }
 
     //region Helper methods
-    private SortedActions filterList(List<Action> result) {
-        List<Action> today = new ArrayList<Action>();
-        List<Action> thisWeek = new ArrayList<Action>();
-        List<Action> thisMonth = new ArrayList<Action>();
-        List<Action> remainder = new ArrayList<Action>();
 
-        DateTime date = new DateTime();
-        int todayNumber = date.getDayOfYear();
-        int weekNumber = date.weekOfWeekyear().get();
-        int monthNumber = date.getMonthOfYear();
-
-        for (Action action : result) {
-            int currentDayNumber = action.getDate().getDayOfYear();
-            int currentWeekNumber = action.getDate().weekOfWeekyear().get();
-            int currentMonthNumber = action.getDate().getMonthOfYear();
-
-            if (currentDayNumber == todayNumber) {
-                today.add(action);
-            }
-            else if (currentWeekNumber == weekNumber) {
-                thisWeek.add(action);
-            }
-            else if (currentMonthNumber == monthNumber) {
-                thisMonth.add(action);
-            }
-            else {
-                remainder.add(action);
-            }
-        }
-
-        return new SortedActions(today, thisWeek, thisMonth, remainder);
-    }
     //endregion
 }
