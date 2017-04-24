@@ -1,6 +1,6 @@
 package controller;
 
-import data.CrudService;
+import data.crud.CrudService;
 import model.prospect.Prospect;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

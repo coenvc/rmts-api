@@ -1,4 +1,4 @@
-package data;
+package data.crud;
 
 import model.Crudable;
 

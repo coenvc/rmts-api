@@ -1,4 +1,4 @@
-package data;
+package data.crud;
 
 import com.google.gson.Gson;
 import model.Crudable;

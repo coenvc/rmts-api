@@ -1,9 +1,7 @@
 package repository.action;
 
 
-import data.CrudOperation;
 import data.Database;
-import data.HibernateCrudOperation;
 import model.action.Action;
 import model.prospect.Prospect;
 import model.action.SortedActions;

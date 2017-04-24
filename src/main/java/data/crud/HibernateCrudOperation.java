@@ -1,6 +1,7 @@
-package data;
+package data.crud;
 
 
+import data.Database;
 import model.Crudable;
 import org.hibernate.Session;
 
