@@ -2,10 +2,10 @@ package service.action;
 
 
 import model.action.Action;
-import model.prospect.Prospect;
 import model.action.SortedActions;
-import model.user.User;
 import repository.action.ActionRepository;
+
+import java.util.List;
 
 public class DefaultActionService implements ActionService {
 
@@ -15,12 +15,20 @@ public class DefaultActionService implements ActionService {
         return repository.getAll();
     }
 
-    public SortedActions getAllByUser(int userId) {
-        return repository.getAllByUser(userId);
+    public SortedActions getAllByUserSorted(int userId) {
+        return repository.getAllByUserSorted(userId);
     }
 
-    public SortedActions getAllByProspect(int prospectId) {
-        return repository.getAllByProspect(prospectId);
+    public SortedActions getAllByProspectSorted(int prospectId) {
+        return repository.getAllByProspectSorted(prospectId);
+    }
+
+    public List<Action> getAllByUserUnsorted(int userId) {
+        return repository.getAllByUserUnsorted(userId);
+    }
+
+    public List<Action> getAllByProspectUnsorted(int prospectId) {
+        return repository.getAllByProspectUnsorted(prospectId);
     }
 
     public Action find(int id) {

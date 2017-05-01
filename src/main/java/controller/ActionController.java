@@ -2,14 +2,14 @@ package controller;
 
 import data.crud.CrudService;
 import model.action.Action;
-import model.prospect.Prospect;
 import model.action.SortedActions;
-import model.user.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.action.ActionService;
+
+import java.util.List;
 
 @RestController()
 @RequestMapping("/action")
@@ -30,14 +30,28 @@ public class ActionController {
     public SortedActions getAllByUser(@PathVariable("userId") Integer userId) {
         if (userId == null) return null;
 
-        return service.getAllByUser(userId);
+        return service.getAllByUserSorted(userId);
     }
 
     @RequestMapping(value = "/all/prospect/{prospectId}", method = {RequestMethod.GET})
     public SortedActions getAllByProspect(@PathVariable("prospectId") Integer prospectId) {
         if (prospectId == null) return null;
 
-        return service.getAllByProspect(prospectId);
+        return service.getAllByProspectSorted(prospectId);
+    }
+
+    @RequestMapping(value = "/all/unsorted/user/{userId}", method = {RequestMethod.GET})
+    public List<Action> getAllByUserUnsorted(@PathVariable("userId") Integer userId) {
+        if (userId == null) return null;
+
+        return service.getAllByUserUnsorted(userId);
+    }
+
+    @RequestMapping(value = "/all/unsorted/prospect/{prospectId}", method = {RequestMethod.GET})
+    public List<Action> getAllByProspectUnsorted(@PathVariable("prospectId") Integer prospectId) {
+        if (prospectId == null) return null;
+
+        return service.getAllByProspectUnsorted(prospectId);
     }
 
     @RequestMapping(value = "/{id}", method = {RequestMethod.GET})

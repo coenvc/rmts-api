@@ -3,12 +3,12 @@ package repository.action;
 
 import data.Database;
 import model.action.Action;
-import model.prospect.Prospect;
+import model.action.ActionComparator;
 import model.action.SortedActions;
-import model.user.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import java.util.Collections;
 import java.util.List;
 
 public class HibernateActionRepository implements ActionRepository {
@@ -27,11 +27,10 @@ public class HibernateActionRepository implements ActionRepository {
         return sortedActions;
     }
 
-    @SuppressWarnings("JpaQlInspection")
-    public SortedActions getAllByUser(int userId) {
+    public SortedActions getAllByUserSorted(int userId) {
         Session session = Database.SESSION.openSession();
 
-        Query query = session.createQuery("FROM Action WHERE user_id = :user").setParameter("user", userId);
+        Query query = session.createQuery("FROM Action WHERE user.id = :user").setParameter("user", userId);
 
         List result = query.getResultList();
 
@@ -42,11 +41,10 @@ public class HibernateActionRepository implements ActionRepository {
         return sortedActions;
     }
 
-    @SuppressWarnings("JpaQlInspection")
-    public SortedActions getAllByProspect(int prospectId) {
+    public SortedActions getAllByProspectSorted(int prospectId) {
         Session session = Database.SESSION.openSession();
 
-        Query query = session.createQuery("FROM Action WHERE prospect_id = :prospect").setParameter("prospect", prospectId);
+        Query query = session.createQuery("FROM Action WHERE prospect.id = :prospect").setParameter("prospect", prospectId);
 
         List result = query.getResultList();
 
@@ -55,6 +53,34 @@ public class HibernateActionRepository implements ActionRepository {
         session.close();
 
         return sortedActions;
+    }
+
+    public List<Action> getAllByUserUnsorted(int userId) {
+        Session session = Database.SESSION.openSession();
+
+        Query query = session.createQuery("FROM Action WHERE user.id = :userId").setParameter("userId", userId);
+
+        List<Action> result = query.getResultList();
+
+        Collections.sort(result, new ActionComparator());
+
+        session.close();
+
+        return result;
+    }
+
+    public List<Action> getAllByProspectUnsorted(int prospectId) {
+        Session session = Database.SESSION.openSession();
+
+        Query query = session.createQuery("FROM Action WHERE prospect.id = :prospectId").setParameter("prospectId", prospectId);
+
+        List<Action> result = query.getResultList();
+
+        Collections.sort(result, new ActionComparator());
+
+        session.close();
+
+        return result;
     }
 
     public Action find(int id) {
