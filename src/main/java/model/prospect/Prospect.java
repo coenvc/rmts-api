@@ -16,18 +16,18 @@ public class Prospect implements Crudable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(targetEntity = Address.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Address.class, fetch = FetchType.EAGER)
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Profession.class, fetch = FetchType.EAGER)
     @JoinColumn
     private Profession profession;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = SocialLinks.class, fetch = FetchType.EAGER)
     @JoinColumn
     private SocialLinks socialLinks;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Status.class, fetch = FetchType.EAGER)
     @JoinColumn
     private Status status;
 
@@ -65,8 +65,8 @@ public class Prospect implements Crudable {
                 firstName == null ||
                 phoneNumber == null ||
                 surname == null ||
-                profession == null ||
-                status == null;
+                profession.isIncomplete() ||
+                status.isIncomplete();
     }
 
     //region Getters & Setters

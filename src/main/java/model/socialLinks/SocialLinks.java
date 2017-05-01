@@ -1,9 +1,11 @@
 package model.socialLinks;
 
+import model.Crudable;
+
 import javax.persistence.*;
 
 @Entity
-public class SocialLinks {
+public class SocialLinks implements Crudable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -20,6 +22,12 @@ public class SocialLinks {
         this.facebook = facebookLink;
         this.linkedIn = linkedinLink;
         this.twitter = twitterLink;
+    }
+
+    public boolean isIncomplete() {
+        return facebook == null ||
+                linkedIn == null ||
+                twitter == null;
     }
 
     //region Getters & Setters
@@ -51,6 +59,7 @@ public class SocialLinks {
     public void setTwitter(String twitter) {
         this.twitter = twitter;
     }
+
 
     //endregion
 }

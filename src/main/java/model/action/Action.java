@@ -17,17 +17,16 @@ public class Action implements Crudable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(targetEntity = ActionType.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ActionType.class, fetch = FetchType.EAGER)
     private ActionType actionType;
 
     @Temporal(value = TemporalType.DATE)
     private Date date;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     private User user;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Prospect.class, fetch = FetchType.EAGER)
     @JoinColumn
     private Prospect prospect;
 
