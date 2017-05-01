@@ -1,10 +1,12 @@
 package service.user;
 
 import model.User;
+import org.springframework.stereotype.Component;
 import repository.user.UserRepository;
 
 import java.util.List;
 
+@Component
 public class DefaultUserService implements UserService {
 
     private UserRepository repository;
