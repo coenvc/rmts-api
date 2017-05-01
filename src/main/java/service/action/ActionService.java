@@ -8,8 +8,8 @@ import model.user.User;
 
 public interface ActionService {
     SortedActions getAll();
-    SortedActions getAllByUser(User user);
-    SortedActions getAllByProspect(Prospect prospect);
+    SortedActions getAllByUser(int userId);
+    SortedActions getAllByProspect(int prospectId);
 
     Action find(int id);
 

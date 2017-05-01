@@ -28,10 +28,10 @@ public class HibernateActionRepository implements ActionRepository {
     }
 
     @SuppressWarnings("JpaQlInspection")
-    public SortedActions getAllByUser(User user) {
+    public SortedActions getAllByUser(int userId) {
         Session session = Database.SESSION.openSession();
 
-        Query query = session.createQuery("FROM Action WHERE user_id = :user").setParameter("user", user.getId());
+        Query query = session.createQuery("FROM Action WHERE user_id = :user").setParameter("user", userId);
 
         List result = query.getResultList();
 
@@ -43,10 +43,10 @@ public class HibernateActionRepository implements ActionRepository {
     }
 
     @SuppressWarnings("JpaQlInspection")
-    public SortedActions getAllByProspect(Prospect prospect) {
+    public SortedActions getAllByProspect(int prospectId) {
         Session session = Database.SESSION.openSession();
 
-        Query query = session.createQuery("FROM Action WHERE prospect_id = :prospect").setParameter("prospect", prospect.getid());
+        Query query = session.createQuery("FROM Action WHERE prospect_id = :prospect").setParameter("prospect", prospectId);
 
         List result = query.getResultList();
 

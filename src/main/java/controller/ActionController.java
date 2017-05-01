@@ -26,18 +26,18 @@ public class ActionController {
         return service.getAll();
     }
 
-    @RequestMapping(value = "/all/user", method = {RequestMethod.POST})
-    public SortedActions getAllByUser(@RequestBody User user) {
-        if (user == null) return null;
+    @RequestMapping(value = "/all/user/{userId}", method = {RequestMethod.GET})
+    public SortedActions getAllByUser(@PathVariable("userId") Integer userId) {
+        if (userId == null) return null;
 
-        return service.getAllByUser(user);
+        return service.getAllByUser(userId);
     }
 
-    @RequestMapping(value = "/all/prospect", method = {RequestMethod.POST})
-    public SortedActions getAllByUser(@RequestBody Prospect prospect) {
-        if (prospect == null) return null;
+    @RequestMapping(value = "/all/prospect/{prospectId}", method = {RequestMethod.GET})
+    public SortedActions getAllByProspect(@PathVariable("prospectId") Integer prospectId) {
+        if (prospectId == null) return null;
 
-        return service.getAllByProspect(prospect);
+        return service.getAllByProspect(prospectId);
     }
 
     @RequestMapping(value = "/{id}", method = {RequestMethod.GET})

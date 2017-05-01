@@ -15,12 +15,12 @@ public class DefaultActionService implements ActionService {
         return repository.getAll();
     }
 
-    public SortedActions getAllByUser(User user) {
-        return repository.getAllByUser(user);
+    public SortedActions getAllByUser(int userId) {
+        return repository.getAllByUser(userId);
     }
 
-    public SortedActions getAllByProspect(Prospect prospect) {
-        return repository.getAllByProspect(prospect);
+    public SortedActions getAllByProspect(int prospectId) {
+        return repository.getAllByProspect(prospectId);
     }
 
     public Action find(int id) {
