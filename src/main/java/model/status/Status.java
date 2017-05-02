@@ -3,6 +3,8 @@ package model.status;
 import model.Crudable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Status implements Crudable {
@@ -24,6 +26,14 @@ public class Status implements Crudable {
 
     public boolean isIncomplete() {
         return content == null;
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (content == null) list.add("content");
+
+        return list;
     }
 
     //region Setters & Getters

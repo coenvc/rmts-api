@@ -3,6 +3,8 @@ package model.profession;
 import model.Crudable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Profession implements Crudable {
@@ -24,6 +26,14 @@ public class Profession implements Crudable {
 
     public boolean isIncomplete() {
         return name == null;
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (name == null) list.add("name");
+
+        return list;
     }
 
     //region Getters & Setters

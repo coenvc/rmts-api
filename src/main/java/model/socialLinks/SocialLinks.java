@@ -3,6 +3,8 @@ package model.socialLinks;
 import model.Crudable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class SocialLinks implements Crudable {
@@ -28,6 +30,16 @@ public class SocialLinks implements Crudable {
         return facebook == null ||
                 linkedIn == null ||
                 twitter == null;
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (facebook == null) list.add("facebook");
+        if (linkedIn == null) list.add("linkedIn");
+        if (twitter == null) list.add("twitter");
+
+        return list;
     }
 
     //region Getters & Setters

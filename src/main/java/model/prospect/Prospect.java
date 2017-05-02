@@ -5,8 +5,11 @@ import model.socialLinks.SocialLinks;
 import model.address.Address;
 import model.profession.Profession;
 import model.status.Status;
+import utility.StringCombiner;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Prospect implements Crudable {
@@ -67,6 +70,21 @@ public class Prospect implements Crudable {
                 surname == null ||
                 profession.isIncomplete() ||
                 status.isIncomplete();
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (emailAddress == null) list.add("emailAddress");
+        if (firstName == null) list.add("firstName");
+        if (phoneNumber == null) list.add("phoneNumber");
+        if (surname == null) list.add("surname");
+        if (profession != null && profession.isIncomplete()) list.add("nested object 'profession' is incomplete, missing " + StringCombiner.combineList(profession.getIncompleteProperties()));
+        if (profession == null) list.add("profession");
+        if (status != null && status.isIncomplete()) list.add("nested object 'status' is incomplete, missing " + StringCombiner.combineList(status.getIncompleteProperties()));
+        if (status == null) list.add("status");
+
+        return list;
     }
 
     //region Getters & Setters

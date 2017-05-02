@@ -6,7 +6,9 @@ import model.prospect.Prospect;
 import model.user.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -33,6 +35,7 @@ public class Action implements Crudable {
     // Basic types
     private String description;
     private boolean isCompleted;
+    private String location;
 
     public Action(){
 
@@ -53,6 +56,20 @@ public class Action implements Crudable {
                 date == null ||
                 user == null ||
                 prospect == null;
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (actionType != null && actionType.isIncomplete() ) list.addAll(actionType.getIncompleteProperties());
+        if (actionType == null) list.add("actionType");
+        if (date == null) list.add("date");
+        if (user != null && user.isIncomplete()) list.addAll(user.getIncompleteProperties());
+        if (user == null) list.add("user");
+        if (prospect != null && prospect.isIncomplete()) list.addAll(prospect.getIncompleteProperties());
+        if (prospect == null) list.add("prospect");
+
+        return list;
     }
 
     //region Setters & Getters
@@ -111,6 +128,14 @@ public class Action implements Crudable {
 
     public void setProspect(Prospect prospect) {
         this.prospect = prospect;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
     //endregion
 }

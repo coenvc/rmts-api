@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import model.Crudable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import utility.StringCombiner;
 
 public class CrudService {
 
@@ -16,7 +17,7 @@ public class CrudService {
     }
 
     public ResponseEntity<String> insert(Crudable crudable) {
-        if (crudable.isIncomplete()) return new ResponseEntity<String>(gson.toJson("Object is incomplete."), HttpStatus.CONFLICT);
+        if (crudable.isIncomplete()) return getErrorMessage(crudable);
 
         try {
             if (crudOperation.create(crudable)) {
@@ -30,7 +31,7 @@ public class CrudService {
     }
 
     public ResponseEntity<String> update(Crudable crudable) {
-        if (crudable.isIncomplete()) return new ResponseEntity<String>(gson.toJson("Object is incomplete."), HttpStatus.CONFLICT);
+        if (crudable.isIncomplete()) getErrorMessage(crudable);
 
         try {
             if (crudOperation.update(crudable)) {
@@ -45,7 +46,7 @@ public class CrudService {
     }
 
     public ResponseEntity<String> delete(Crudable crudable) {
-        if (crudable.isIncomplete()) return new ResponseEntity<String>(gson.toJson("Object is incomplete."), HttpStatus.CONFLICT);
+        if (crudable.isIncomplete()) getErrorMessage(crudable);
 
         try {
             if (crudOperation.delete(crudable)) {
@@ -58,4 +59,11 @@ public class CrudService {
             return new ResponseEntity<String>(gson.toJson(e), HttpStatus.BAD_REQUEST);
         }
     }
+
+    //region Helper methods
+    private ResponseEntity<String> getErrorMessage(Crudable crudable) {
+        String message = StringCombiner.combineList(crudable.getIncompleteProperties());
+        return new ResponseEntity<String>(gson.toJson("Object is incomplete, missing: " + message), HttpStatus.CONFLICT);
+    }
+    //endregion
 }

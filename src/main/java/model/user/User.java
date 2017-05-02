@@ -3,6 +3,8 @@ package model.user;
 import model.Crudable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User implements Crudable {
@@ -33,6 +35,16 @@ public class User implements Crudable {
         return username == null ||
                 password == null ||
                 name == null;
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (username == null) list.add("username");
+        if (password == null) list.add("password");
+        if (name == null) list.add("name");
+
+        return list;
     }
 
     //region Getters & Setters

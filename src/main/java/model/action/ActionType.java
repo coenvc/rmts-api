@@ -3,6 +3,8 @@ package model.action;
 import model.Crudable;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class ActionType implements Crudable {
@@ -20,6 +22,14 @@ public class ActionType implements Crudable {
 
     public boolean isIncomplete() {
         return content == null;
+    }
+
+    public List<String> getIncompleteProperties() {
+        List<String> list = new ArrayList<String>();
+
+        if (content == null) list.add("content");
+
+        return list;
     }
 
     public ActionType(String content){
