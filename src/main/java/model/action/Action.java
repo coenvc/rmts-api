@@ -1,6 +1,7 @@
 package model.action;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import model.Crudable;
 import model.prospect.Prospect;
 import model.user.User;
@@ -32,9 +33,12 @@ public class Action implements Crudable {
     @JoinColumn
     private Prospect prospect;
 
+    @JsonIgnore
+    private boolean isCompleted;
+
     // Basic types
     private String description;
-    private boolean isCompleted;
+
     private String location;
 
     public Action(){
