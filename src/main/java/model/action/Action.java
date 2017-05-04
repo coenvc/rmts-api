@@ -7,6 +7,8 @@ import model.prospect.Prospect;
 import model.user.User;
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +25,7 @@ public class Action implements Crudable {
     @OneToOne(targetEntity = ActionType.class, fetch = FetchType.EAGER)
     private ActionType actionType;
 
-    @Temporal(value = TemporalType.DATE)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date date;
 
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
