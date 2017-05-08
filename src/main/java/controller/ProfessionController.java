@@ -34,8 +34,8 @@ public class ProfessionController {
         return crudService.update(profession);
     }
 
-    @RequestMapping(value = "", method = {RequestMethod.DELETE})
-    public ResponseEntity<String> delete(@RequestBody Profession profession) {
-        return crudService.delete(profession);
+    @RequestMapping(value = "{id}", method = {RequestMethod.DELETE})
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
+        return crudService.delete(service.find(id));
     }
 }

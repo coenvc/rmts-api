@@ -71,8 +71,8 @@ public class ActionController {
         return crudService.update(action);
     }
 
-    @RequestMapping(value = "", method = {RequestMethod.DELETE})
-    public ResponseEntity<String> delete(@RequestBody(required = false) Action action) {
-        return crudService.delete(action);
+    @RequestMapping(value = "/{id}", method = {RequestMethod.DELETE})
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
+        return crudService.delete(service.find(id));
     }
 }

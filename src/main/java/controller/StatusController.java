@@ -41,10 +41,9 @@ public class StatusController {
         return crudService.update(status);
     }
 
-    @RequestMapping(value = "", method = {RequestMethod.DELETE})
-    public ResponseEntity<String> delete(@RequestBody(required = false) Status status) {
-        return crudService.delete(status);
+    @RequestMapping(value = "/{id}", method = {RequestMethod.DELETE})
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
+        return crudService.delete(service.find(id));
     }
-
 
 }
