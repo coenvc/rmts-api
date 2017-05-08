@@ -31,17 +31,17 @@ public class StatusController {
         return service.find(id);
     }
 
-    @RequestMapping(value = "/insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "", method = {RequestMethod.POST})
     public ResponseEntity<String> insert(@RequestBody Status status) {
         return crudService.insert(status);
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT})
+    @RequestMapping(value = "", method = {RequestMethod.PUT})
     public ResponseEntity<String> update(@RequestBody Status status) {
         return crudService.update(status);
     }
 
-    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE})
+    @RequestMapping(value = "", method = {RequestMethod.DELETE})
     public ResponseEntity<String> delete(@RequestBody(required = false) Status status) {
         return crudService.delete(status);
     }

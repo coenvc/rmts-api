@@ -24,17 +24,17 @@ public class ProfessionController {
         return service.getAll();
     }
 
-    @RequestMapping(value = "/insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "", method = {RequestMethod.POST})
     public ResponseEntity<String> insert(@RequestBody Profession profession) {
         return crudService.insert(profession);
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT})
+    @RequestMapping(value = "", method = {RequestMethod.PUT})
     public ResponseEntity<String> update(@RequestBody Profession profession) {
         return crudService.update(profession);
     }
 
-    @RequestMapping(value = "/delete", method = {RequestMethod.PUT})
+    @RequestMapping(value = "", method = {RequestMethod.DELETE})
     public ResponseEntity<String> delete(@RequestBody Profession profession) {
         return crudService.delete(profession);
     }

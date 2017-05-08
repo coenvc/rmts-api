@@ -31,13 +31,13 @@ public class ProspectController {
         return service.find(id);
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT})
+    @RequestMapping(value = "", method = {RequestMethod.PUT})
     public ResponseEntity<String> update(@RequestBody Prospect prospect) {
         return crudService.update(prospect);
     }
 
     @CrossOrigin("*")
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<String> register(@RequestBody Prospect prospect) {
         return crudService.insert(prospect);
     }

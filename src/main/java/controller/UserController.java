@@ -25,7 +25,7 @@ public class UserController {
         return service.getAll();
     }
 
-    @RequestMapping("/{id}/**")
+    @RequestMapping("/{id}")
     public User find(@PathVariable("id") Integer id) {
         if (id == null) return null;
         return service.find(id);
@@ -36,7 +36,7 @@ public class UserController {
         return service.login(values.get("username"), values.get("password"));
     }
 
-    @RequestMapping(value = "/register", method = {RequestMethod.POST})
+    @RequestMapping(value = "", method = {RequestMethod.POST})
     public ResponseEntity<String> register(@RequestBody User user) {
         return crudService.insert(user);
     }

@@ -61,17 +61,17 @@ public class ActionController {
         return service.find(id);
     }
 
-    @RequestMapping(value = "/insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "", method = {RequestMethod.POST})
     public ResponseEntity<String> insert(@RequestBody Action action) {
         return crudService.insert(action);
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT})
+    @RequestMapping(value = "", method = {RequestMethod.PUT})
     public ResponseEntity<String> update(@RequestBody Action action) {
         return crudService.update(action);
     }
 
-    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE})
+    @RequestMapping(value = "", method = {RequestMethod.DELETE})
     public ResponseEntity<String> delete(@RequestBody(required = false) Action action) {
         return crudService.delete(action);
     }

@@ -31,17 +31,17 @@ public class ActionTypeController {
         return service.find(id);
     }
 
-    @RequestMapping(value = "/insert", method = {RequestMethod.POST})
+    @RequestMapping(value = "", method = {RequestMethod.POST})
     public ResponseEntity<String> insert(@RequestBody ActionType actionType) {
         return crudService.insert(actionType);
     }
 
-    @RequestMapping(value = "/update", method = {RequestMethod.PUT})
+    @RequestMapping(value = "", method = {RequestMethod.PUT})
     public ResponseEntity<String> update(@RequestBody ActionType actionType) {
         return crudService.update(actionType);
     }
 
-    @RequestMapping(value = "/delete", method = {RequestMethod.DELETE})
+    @RequestMapping(value = "", method = {RequestMethod.DELETE})
     public ResponseEntity<String> delete(@RequestBody(required = false) ActionType actionType) {
         return crudService.delete(actionType);
     }
