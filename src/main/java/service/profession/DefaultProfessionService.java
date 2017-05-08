@@ -1,5 +1,6 @@
 package service.profession;
 
+import model.profession.Profession;
 import repository.profession.ProfessionRepository;
 
 import java.util.List;
@@ -10,6 +11,10 @@ public class DefaultProfessionService implements ProfessionService {
 
     public List getAll() {
         return repository.getAll();
+    }
+
+    public Profession find(int id) {
+        return repository.find(id);
     }
 
     //region Getters & Setters

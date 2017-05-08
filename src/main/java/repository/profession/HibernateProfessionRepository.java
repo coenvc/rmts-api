@@ -1,6 +1,7 @@
 package repository.profession;
 
 import data.Database;
+import model.profession.Profession;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -18,5 +19,15 @@ public class HibernateProfessionRepository implements ProfessionRepository {
         session.close();
 
         return result;
+    }
+
+    public Profession find(int id) {
+        Session session = Database.SESSION.openSession();
+
+        Profession profession = session.find(Profession.class, id);
+
+        session.close();
+
+        return profession;
     }
 }
