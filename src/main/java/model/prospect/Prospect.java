@@ -66,7 +66,6 @@ public class Prospect implements Crudable {
     public boolean isIncomplete() {
         return emailAddress == null ||
                 firstName == null ||
-                phoneNumber == null ||
                 surname == null ||
                 profession.isIncomplete() ||
                 status.isIncomplete();
