@@ -1,40 +1,40 @@
- package security;
+package security;
 
- import model.user.User;
- import org.springframework.beans.factory.annotation.Autowired;
- import org.springframework.context.annotation.ComponentScan;
- import org.springframework.security.authentication.*;
- import org.springframework.security.core.Authentication;
- import org.springframework.security.core.AuthenticationException;
- import org.springframework.security.core.GrantedAuthority;
- import org.springframework.security.core.authority.SimpleGrantedAuthority;
- import org.springframework.stereotype.Component;
- import repository.user.HibernateUserRepository;
+import model.user.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.authentication.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Component;
+import repository.user.HibernateUserRepository;
 
- import java.util.ArrayList;
- import java.util.List;
-
-/**
- * Created by BonoIJpelaar on 24-04-17.
- */
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @ComponentScan("repository.user")
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
+    private final HibernateUserRepository userService;
+
     @Autowired
-    HibernateUserRepository userService;
+    public CustomAuthenticationProvider(HibernateUserRepository userService) {
+        this.userService = userService;
+    }
 
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getPrincipal().toString();
         String password = authentication.getCredentials().toString();
 
         User user = userService.login(username, password);
-        if(user == null) {
+        if (user == null) {
             throw new BadCredentialsException("Invalid username/password");
         }
 
-        if(!user.isActive()) {
+        if (!user.isActive()) {
             throw new DisabledException("User is inactive");
         }
 
