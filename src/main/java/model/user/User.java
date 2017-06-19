@@ -18,7 +18,7 @@ public class User implements Crudable {
 
     private String password;
     private String name;
-    private boolean active;
+    private boolean isActive;
 
     public User() {
 
@@ -28,7 +28,7 @@ public class User implements Crudable {
         this.username = username;
         this.password = password;
         this.name = name;
-        this.active = active;
+        this.isActive = active;
     }
 
     public boolean isIncomplete() {
@@ -65,11 +65,11 @@ public class User implements Crudable {
     }
 
     public boolean isActive() {
-        return active;
+        return isActive;
     }
 
     public void setActive(boolean _active) {
-        this.active = _active;
+        this.isActive = _active;
     }
 
     public int getId() {

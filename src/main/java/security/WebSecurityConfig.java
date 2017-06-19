@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomAuthenticationProvider authProvider;
 
+    
+
     @Autowired
     public WebSecurityConfig(CustomAuthenticationProvider authProvider) {
         this.authProvider = authProvider;
@@ -28,14 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         String host = "http://localhost:4200/";
         http
                 .authorizeRequests()
-                    .anyRequest().authenticated()
-                    .and()
-                .formLogin()
-                    .loginPage(host)
-                    .permitAll()
-                    .and()
-                .httpBasic()
-                    .and()
-                .csrf().disable();
+                    .anyRequest().permitAll();
     }
 }
