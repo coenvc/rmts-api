@@ -40,4 +40,9 @@ public class UserController {
     public ResponseEntity<String> register(@RequestBody User user) {
         return crudService.insert(user);
     }
+
+    @RequestMapping(value = "", method ={RequestMethod.PUT})
+    public ResponseEntity<String> update(@RequestBody User user) {
+        return crudService.update(user);
+    }
 }
